@@ -29,12 +29,12 @@
 }
 
 .hiddenName {
-  visibility: hidden;
+  width: 0;
   font-size: .75em;
 }
 
 .logo:hover .hiddenName, .logo:active .hiddenName, .logo:focus .hiddenName {
-  visibility: visible;
+  width: auto;
 }
 
 .menu {

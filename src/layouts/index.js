@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import normalize from 'normalize.css'
+import Container from '../components/Container'
 import Header from '../components/Header'
 
 
@@ -11,7 +12,9 @@ class Template extends React.Component {
     return (
       <div>
         <Header />
-        {children()}
+        <Container>
+          {children()}
+        </Container>
       </div>
     )
   }
