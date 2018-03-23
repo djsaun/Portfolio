@@ -1,0 +1,53 @@
+.header {
+  background: lightblue;
+}
+
+.headerContainer {
+  margin: 0 auto;
+  padding: 15px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  max-width: 1200px;
+}
+
+.logo {
+  transition: all .3s ease;
+}
+
+.logo:hover, .logo:active, .logo:focus {
+  text-decoration: none;
+}
+
+.name {
+  font-size: 2em;
+  text-decoration: none;
+}
+
+.name:hover, .name:active, .name:focus {
+  text-decoration: none;
+}
+
+.hiddenName {
+  visibility: hidden;
+  font-size: .75em;
+}
+
+.logo:hover .hiddenName, .logo:active .hiddenName, .logo:focus .hiddenName {
+  visibility: visible;
+}
+
+.menu {
+  display: flex;
+  justify-self: end;
+}
+
+.menuLink {
+  display: inline-block;
+  margin: 0 15px;
+  transition: all .3s ease;
+}
+
+.menuLink:hover, .menuLink:active, .menuLink:focus {
+  text-decoration: none;
+}

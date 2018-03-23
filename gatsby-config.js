@@ -1,7 +1,10 @@
+const autoprefixer = require('autoprefixer');
+const postcssNested = require('postcss-nested');
+
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Starter Blog",
-    author: "Kyle Mathews",
+    title: "David Saunders' Portfolio",
+    author: "David Saunders",
   },
   plugins: [
     {
@@ -43,5 +46,23 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-plugin-typography',
+      options: {
+        pathToConfigModule: 'src/utils/typography.js'
+      }
+    },
+    {
+      resolve: `gatsby-plugin-postcss-sass`,
+      options: {
+        postCssPlugins: [
+          autoprefixer({
+            browsers: ['last 2 versions']
+          }),
+          postcssNested
+        ],
+        precision: 8
+      }
+    }
   ],
 }

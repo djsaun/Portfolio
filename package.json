@@ -7,14 +7,17 @@
     "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
   },
   "dependencies": {
+    "autoprefixer": "^8.2.0",
     "gatsby": "^1.8.12",
     "gatsby-link": "^1.6.8",
     "gatsby-plugin-google-analytics": "^1.0.4",
     "gatsby-plugin-manifest": "^1.0.4",
     "gatsby-plugin-offline": "^1.0.4",
+    "gatsby-plugin-postcss-sass": "^1.0.18",
     "gatsby-plugin-preact": "^1.0.3",
     "gatsby-plugin-react-helmet": "^1.0.3",
     "gatsby-plugin-sharp": "^1.6.2",
+    "gatsby-plugin-typography": "^1.7.18",
     "gatsby-remark-copy-linked-files": "^1.5.2",
     "gatsby-remark-images": "^1.5.4",
     "gatsby-remark-prismjs": "^1.2.1",
@@ -25,7 +28,9 @@
     "gatsby-transformer-sharp": "^1.6.1",
     "lodash": "^4.15.0",
     "normalize-css": "^2.3.1",
-    "normalize.css": "^8.0.0"
+    "normalize.css": "^8.0.0",
+    "postcss-nested": "^3.0.0",
+    "typography-theme-moraga": "^0.15.10"
   },
   "devDependencies": {
     "gh-pages": "^0.12.0",
