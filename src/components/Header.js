@@ -9,8 +9,16 @@ class Header extends React.Component{
         <div className={styles.headerContainer}>
           <div>
             <Link className={styles.logo} to="/">
-              <div className={styles.name}>D<span className={styles.hiddenName}>avid</span></div>
-              <div className={styles.name}>S<span className={styles.hiddenName}>aunders</span></div>
+              <div className={styles.name}>D
+                <div className={styles.hiddenName}>
+                  <span className={styles.hiddenNameSpan}>avid</span>
+                </div>
+              </div>
+              <div className={styles.name}>S
+                <div className={styles.hiddenName}>
+                  <span className={styles.hiddenNameSpan}>aunders</span>
+                </div>
+              </div>
             </Link>
           </div>
           <div className={styles.menu}>

@@ -1,7 +1,7 @@
 ---
-title: Hello World
-date: "2015-05-01"
-path: "/hello-world/"
+title: Budget Tracker
+date: "2017-04-03"
+path: "/test/"
 ---
 
 This is my first post on my new fake blog! How exciting!

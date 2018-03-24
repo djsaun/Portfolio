@@ -4,7 +4,6 @@ import normalize from 'normalize.css'
 import Container from '../components/Container'
 import Header from '../components/Header'
 
-
 class Template extends React.Component {
   render() {
     const { location, children } = this.props

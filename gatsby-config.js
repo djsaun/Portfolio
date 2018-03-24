@@ -4,14 +4,14 @@ const postcssNested = require('postcss-nested');
 module.exports = {
   siteMetadata: {
     title: "David Saunders' Portfolio",
-    author: "David Saunders",
+    author: "David Saunders"
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
-        name: "pages",
+        name: `src`,
+        path: `${__dirname}/src/`,
       },
     },
     {

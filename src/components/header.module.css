@@ -29,12 +29,18 @@
 }
 
 .hiddenName {
-  width: 0;
+  display: inline-block;
   font-size: .75em;
+  width: 0;
+}
+
+.hiddenNameSpan {
+  display: inline-block;
+  /* width: 0; */
 }
 
 .logo:hover .hiddenName, .logo:active .hiddenName, .logo:focus .hiddenName {
-  width: auto;
+  /* width: auto; */
 }
 
 .menu {
