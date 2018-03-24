@@ -11,21 +11,26 @@ class Index extends React.Component {
   constructor() {
     super();
     this.state = {
-      repos: []
+      github: {
+        user: 'djsaun',
+        repos: [],
+        totalRepos: 0,
+        error: false
+      }
     }
 
     this.fetchRepoData = this.fetchRepoData.bind(this);
   }
 
-  fetchRepoData(name, repo) {
+  fetchRepoData(name) {
     const auth = { Authorization: `bearer ${process.env.GATSBY_GITHUB_API}`};
     const githubURL = `https://api.github.com/graphql`;
 
-    function repoQuery(name, repo) {
+    function repoQuery(name) {
       return `
       {
         repositoryOwner(login: "${name}") {
-          repositories(first:40, affiliations: OWNER, orderBy:{field:UPDATED_AT, direction: DESC}) {
+          repositories(first:5, affiliations: OWNER, orderBy:{field:UPDATED_AT, direction: DESC}) {
             totalCount
             pageInfo {
               hasNextPage
@@ -33,12 +38,10 @@ class Index extends React.Component {
             }
             edges {
               node {
-                url
                 name
+                url
                 updatedAt
-                owner {
-                  id
-                }
+                shortDescriptionHTML
               }
             }
           }
@@ -48,26 +51,33 @@ class Index extends React.Component {
     };
 
     return axios.post(githubURL, {
-      query: repoQuery(name, repo)
+      query: repoQuery(name)
     }, {headers: auth})
   }
 
   componentDidMount() {
 
-    this.fetchRepoData('djsaun', 'Budget-Tracker')
+    const reposArr = [];
+
+    this.fetchRepoData(this.state.github.user)
       .then(res => {
-        console.log(res)
+        reposArr.push(res.data.data.repositoryOwner.repositories.edges)
+        
+        this.setState({
+          github: {
+            repos: reposArr[0],
+            totalRepos: res.data.data.repositoryOwner.repositories.totalCount
+          }
+        })
       })
-    // const reposArr = [];
-    // axios.get(reposUrl)
-    //   .then(res => {
-    //     res.data.map((project) => {
-    //       reposArr.push(project.name);
-    //     })
-    //     this.setState({
-    //       repos: reposArr
-    //     })
-    //   })
+      .catch(error => {
+        this.setState({
+          github: {
+            error: true,
+            error_message: error.message
+          }
+        })
+      })
   }
   
   render() {
