@@ -1,11 +1,12 @@
 import React from 'react';
 
-class Repo extends React.Component {
-  render() {
-    return (
-      <h1>Not Found</h1>
-    )
-  }
+const Repo = (props) => {
+  return (
+    <div className="repo">
+      <h1>{props.details.name}</h1>
+      <a href={props.details.url} target="_blank">View</a>
+    </div>
+  )
 }
 
 export default Repo;
