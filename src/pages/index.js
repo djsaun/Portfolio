@@ -13,20 +13,48 @@ class Index extends React.Component {
     this.state = {
       repos: []
     }
+
+    this.fetchRepoData = this.fetchRepoData.bind(this);
+  }
+
+  fetchRepoData(name, repo) {
+    const auth = { Authorization: `bearer ${process.env.GATSBY_GITHUB_API}`};
+    const githubURL = `https://api.github.com/graphql`;
+
+    function repoQuery(name, repo) {
+      return `
+      {
+        repositoryOwner(login: "${name}") {
+          repository(name: "${repo}") {
+            name
+            url
+          }
+        }
+      }
+      `
+    };
+
+    return axios.post(githubURL, {
+      query: repoQuery(name, repo)
+    }, {headers: auth})
   }
 
   componentDidMount() {
-    const reposUrl = `https://api.github.com/users/djsaun/repos`;
-    const reposArr = [];
-    axios.get(reposUrl)
+
+    this.fetchRepoData('djsaun', 'Budget-Tracker')
       .then(res => {
-        res.data.map((project) => {
-          reposArr.push(project.name);
-        })
-        this.setState({
-          repos: reposArr
-        })
+        console.log(res)
       })
+    // const reposArr = [];
+    // axios.get(reposUrl)
+    //   .then(res => {
+    //     res.data.map((project) => {
+    //       reposArr.push(project.name);
+    //     })
+    //     this.setState({
+    //       repos: reposArr
+    //     })
+    //   })
   }
   
   render() {
