@@ -25,9 +25,22 @@ class Index extends React.Component {
       return `
       {
         repositoryOwner(login: "${name}") {
-          repository(name: "${repo}") {
-            name
-            url
+          repositories(first:40, affiliations: OWNER, orderBy:{field:UPDATED_AT, direction: DESC}) {
+            totalCount
+            pageInfo {
+              hasNextPage
+              endCursor
+            }
+            edges {
+              node {
+                url
+                name
+                updatedAt
+                owner {
+                  id
+                }
+              }
+            }
           }
         }
       }
