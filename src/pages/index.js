@@ -15,6 +15,7 @@ class Index extends React.Component {
         user: 'djsaun',
         repos: [],
         totalRepos: 0,
+        loading: true,
         error: false
       }
     }
@@ -25,6 +26,9 @@ class Index extends React.Component {
   fetchRepoData(name) {
     const auth = { Authorization: `bearer ${process.env.GATSBY_GITHUB_API}`};
     const githubURL = `https://api.github.com/graphql`;
+
+    let CancelToken = axios.CancelToken;
+    let source = CancelToken.source();
 
     function repoQuery(name) {
       return `
@@ -51,6 +55,7 @@ class Index extends React.Component {
     };
 
     return axios.post(githubURL, {
+      cancelToken: source.token,
       query: repoQuery(name)
     }, {headers: auth})
   }
@@ -66,7 +71,8 @@ class Index extends React.Component {
         this.setState({
           github: {
             repos: reposArr[0],
-            totalRepos: res.data.data.repositoryOwner.repositories.totalCount
+            totalRepos: res.data.data.repositoryOwner.repositories.totalCount,
+            loading: false
           }
         })
       })
@@ -79,6 +85,10 @@ class Index extends React.Component {
         })
       })
   }
+
+  componentWillUnmount() {
+    source.cancel("Component Is Unmounting");
+  }
   
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -87,7 +97,7 @@ class Index extends React.Component {
       <div>
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')} />
         <Bio />
-        <Github_Projects repos={this.state.repos} />
+        {(!this.state.github.loading && <Github_Projects repos={this.state.github} />)}
       </div>
     )
   }
