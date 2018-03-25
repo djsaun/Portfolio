@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import axios from 'axios';
 
 import Bio from '../components/Bio'
-import Github_Projects from '../components/Github_Projects';
+import Repos from '../components/Repos';
 
 class Index extends React.Component {
   constructor() {
@@ -97,7 +97,7 @@ class Index extends React.Component {
       <div>
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')} />
         <Bio />
-        {(!this.state.github.loading && <Github_Projects repos={this.state.github} />)}
+        {(!this.state.github.loading && <Repos repos={this.state.github} />)}
       </div>
     )
   }
