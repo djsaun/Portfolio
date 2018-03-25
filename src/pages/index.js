@@ -46,6 +46,17 @@ class Index extends React.Component {
                 url
                 updatedAt
                 shortDescriptionHTML
+                stargazers(first:50) {
+                  totalCount
+                }
+                languages(first: 3) {
+                  edges {
+                    node {
+                      color
+                      name
+                    }
+                  }
+                }
               }
             }
           }
@@ -96,7 +107,7 @@ class Index extends React.Component {
     return (
       <div>
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')} />
-        <Bio />
+        {/* <Bio /> */}
         {(!this.state.github.loading && <Repos repos={this.state.github} />)}
       </div>
     )
