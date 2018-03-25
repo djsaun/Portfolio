@@ -49,6 +49,12 @@ class Index extends React.Component {
                 stargazers(first:50) {
                   totalCount
                 }
+                issues(first: 50) {
+                  totalCount
+                }
+                watchers(first:50) {
+                  totalCount
+                }
                 languages(first: 3) {
                   edges {
                     node {
@@ -106,8 +112,10 @@ class Index extends React.Component {
 
     return (
       <div>
-        <Helmet title={get(this, 'props.data.site.siteMetadata.title')} />
+        <Helmet title={get(this, 'props.data.site.siteMetadata.title')}>
+        </Helmet>
         {/* <Bio /> */}
+        <i className="fas fa-address-book"></i>
         {(!this.state.github.loading && <Repos repos={this.state.github} />)}
       </div>
     )
