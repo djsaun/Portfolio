@@ -111,11 +111,10 @@ class Index extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
 
     return (
-      <div>
+      <div className="test">
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')}>
         </Helmet>
         {/* <Bio /> */}
-        <i className="fas fa-address-book"></i>
         {(!this.state.github.loading && <Repos repos={this.state.github} />)}
       </div>
     )

@@ -3,7 +3,8 @@ import moment from 'moment';
 import styles from '../styles/repo.module.css';
 import Button from './Button';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import {faStar} from '@fortawesome/fontawesome-free-solid'
+import { faStar } from '@fortawesome/fontawesome-free-regular';
+import { faEye, faExclamationTriangle } from '@fortawesome/fontawesome-pro-regular';
 
 const Repo = (props) => {
 
@@ -13,9 +14,7 @@ const Repo = (props) => {
       <p className={styles.updated}>Last updated: {moment(props.details.updatedAt).fromNow()}</p>
       <p>{props.details.shortDescriptionHTML}</p>
       <div className={styles.details}>
-        <div className={styles.languages}>
-          <p>Primary Languages Used:</p>
-          
+        <div className={styles.languages}>          
           {props.details.languages.edges.map((language, i) => {
             
             const bottomBorder = {
@@ -27,16 +26,18 @@ const Repo = (props) => {
             )
           })}
         </div>
-        <div className="metadata">
+        <div className={styles.metadata}>
           <div className="watchers">
-            <FontAwesomeIcon icon={faStar} />
-            Watchers: {props.details.watchers.totalCount}
+            <FontAwesomeIcon icon={faEye} /> 
+            <span>{props.details.watchers.totalCount}</span>
           </div>
           <div className="stars">
-            Stars: {props.details.stargazers.totalCount}
+            <FontAwesomeIcon icon={faStar} /> 
+            <span>{props.details.stargazers.totalCount}</span>
           </div>
           <div className="issues">
-            Issues: {props.details.issues.totalCount}
+            <FontAwesomeIcon icon={faExclamationTriangle} /> 
+            <span>{props.details.issues.totalCount}</span>
           </div>
         </div>
       </div>
