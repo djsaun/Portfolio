@@ -14,7 +14,7 @@ const Repo = (props) => {
       <p className={styles.updated}>Last updated: {moment(props.details.updatedAt).fromNow()}</p>
       <p>{props.details.shortDescriptionHTML}</p>
       <div className={styles.details}>
-        <div className={styles.languages}>          
+        {/* <div className={styles.languages}>          
           {props.details.languages.edges.map((language, i) => {
             
             const bottomBorder = {
@@ -25,7 +25,7 @@ const Repo = (props) => {
               <p className={styles.language} key={i}><span style={bottomBorder}>{language.node.name}</span></p>
             )
           })}
-        </div>
+        </div> */}
         <div className={styles.metadata}>
           <div className="watchers">
             <FontAwesomeIcon icon={faEye} /> 
@@ -40,8 +40,10 @@ const Repo = (props) => {
             <span>{props.details.issues.totalCount}</span>
           </div>
         </div>
+        <div className={styles.button}>
+          <Button link={props.details.url} text="View" target="_blank" />
+        </div>
       </div>
-      <Button link={props.details.url} text="View" target="_blank" />
     </div>
   )
 }

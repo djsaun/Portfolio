@@ -130,8 +130,7 @@ class Index extends React.Component {
 
     return (
       <div className="test">
-        <Helmet title={get(this, 'props.data.site.siteMetadata.title')}>
-        </Helmet>
+        <Helmet title={get(this, 'props.data.site.siteMetadata.title')}></Helmet>
         {/* <Bio /> */}
         {(!this.state.repoLoading && !this.state.eventsLoading && <Repos repos={this.state} />)}
       </div>
