@@ -1,11 +1,12 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import get from 'lodash/get'
-import Helmet from 'react-helmet'
+import React from 'react';
+import Link from 'gatsby-link';
+import get from 'lodash/get';
+import Helmet from 'react-helmet';
 import axios from 'axios';
 
-import Bio from '../components/Bio'
+import Bio from '../components/Bio';
 import Repos from '../components/Repos';
+import Loading from '../components/Loading';
 
 class Index extends React.Component {
   constructor() {
@@ -122,7 +123,7 @@ class Index extends React.Component {
   }
 
   componentWillUnmount() {
-    source.cancel("Component Is Unmounting");
+    axios.CancelToken.source().cancel("Component Is Unmounting");
   }
   
   render() {
@@ -132,6 +133,7 @@ class Index extends React.Component {
       <div className="test">
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')}></Helmet>
         {/* <Bio /> */}
+        {((this.state.repoLoading || this.state.eventsLoading) && <Loading /> )}
         {(!this.state.repoLoading && !this.state.eventsLoading && <Repos repos={this.state} />)}
       </div>
     )
