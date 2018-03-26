@@ -1,5 +1,7 @@
+@import "./colors.css";
+
 .header {
-  background: lightblue;
+  border-bottom: 2px solid var(--gray-dark);
 }
 
 .headerContainer {

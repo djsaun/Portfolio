@@ -1,0 +1,12 @@
+@import "./colors.css";
+
+footer {
+  padding-top: 15px;
+  border-top: 2px solid var(--gray-dark);
+}
+
+.container {
+  padding: 0 40px;
+  margin: 0 auto;
+  max-width: 1200px;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import styles from '../styles/activity.module.css';
 
 const Activity = (props) => {
   const { events } = props;
@@ -56,7 +57,7 @@ const Activity = (props) => {
     <div>
       {github_activities.map((event, i) => 
        <div className="event" key={i}>
-         <h5>{event.year}</h5>
+         <h4 className={styles.date}>{event.year}</h4>
          {event.data.map((action, i) => 
            <p key={i}><a href={action.repo.url} target="_blank">{action.action} {action.repo.name}</a></p>
          )}

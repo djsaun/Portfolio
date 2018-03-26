@@ -1,0 +1,18 @@
+@import "./colors.css";
+
+body {
+  background: var(--white);
+}
+
+p {
+  color: var(--gray-light);
+}
+
+a {
+  color: var(--red);
+  transition: all .3s ease;
+}
+
+a:hover, a:active, a:focus {
+  color: var(--gray-light);
+}
