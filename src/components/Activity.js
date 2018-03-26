@@ -59,7 +59,7 @@ const Activity = (props) => {
        <div className="event" key={i}>
          <h4 className={styles.date}>{event.year}</h4>
          {event.data.map((action, i) => 
-           <p key={i}><a href={action.repo.url} target="_blank">{action.action} {action.repo.name}</a></p>
+           <p key={i}><a href={`https://github.com/${action.repo.name}`} target="_blank">{action.action} {action.repo.name}</a></p>
          )}
        </div>
        )}
