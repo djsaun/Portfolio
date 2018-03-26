@@ -3,7 +3,7 @@
 .repo {
   margin-bottom: 15px;
   padding: 15px;
-  border: 1px solid gray;
+  border: 1px solid var(--gray-light);
 }
 
 .header {
@@ -16,8 +16,11 @@
   font-size: 12px;
 }
 
+.description {
+  line-height: 1.4;
+}
+
 .details {
-  /* margin-bottom: 20px; */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   grid-gap: 20px;
@@ -40,10 +43,7 @@
 .metadata {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-}
-
-.metadata > div {
-  margin-bottom: 10px;
+  align-items: center;
 }
 
 .metadata span {

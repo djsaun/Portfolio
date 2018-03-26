@@ -1,0 +1,14 @@
+@import "./colors.css";
+
+.button {
+  padding: 10px 20px;
+  display: inline-block;
+  border: 2px solid var(--red);
+  border-radius: 4px;
+  transition: all .3s ease;
+}
+
+.button:hover, .button:active, .button:focus {
+  background: var(--red);
+  color: var(--white);
+}

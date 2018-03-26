@@ -12,7 +12,7 @@ const Repo = (props) => {
     <div className={styles.repo}>
       <h3 className={styles.header}>{props.details.name}</h3>
       <p className={styles.updated}>Last updated: {moment(props.details.updatedAt).fromNow()}</p>
-      <p>{props.details.shortDescriptionHTML}</p>
+      <p className={styles.description}>{props.details.shortDescriptionHTML}</p>
       <div className={styles.details}>
         {/* <div className={styles.languages}>          
           {props.details.languages.edges.map((language, i) => {
