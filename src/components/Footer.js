@@ -8,9 +8,6 @@ const Footer = (props) => {
   return(
     <footer>
       <div className={styles.container}>
-        <div className="copyright">
-          <p>@{new Date().getFullYear()} David Saunders</p>
-        </div>
         <div className="social">
           <a href="https://github.com/djsaun" target="_blank"><FontAwesomeIcon icon={faGithub} /></a>
           <a href="https://www.linkedin.com/in/davidjsaunders/" target="_blank"><FontAwesomeIcon icon={faLinkedinIn} /></a>

@@ -2,6 +2,7 @@
 title: Budget Tracker
 date: "2017-04-03"
 path: "/test/"
+featured: true
 ---
 
 This is my first post on my new fake blog! How exciting!

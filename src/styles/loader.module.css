@@ -1,3 +1,10 @@
+.pageLoader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .loaderContainer > div > div {
   margin: 0 auto;
 }
