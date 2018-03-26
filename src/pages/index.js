@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import Bio from '../components/Bio';
 import Repos from '../components/Repos';
-import Loading from '../components/Loading';
+import Loader from '../components/Loader';
 
 class Index extends React.Component {
   constructor() {
@@ -133,7 +133,7 @@ class Index extends React.Component {
       <div className="test">
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')}></Helmet>
         {/* <Bio /> */}
-        {((this.state.repoLoading || this.state.eventsLoading) && <Loading /> )}
+        {((this.state.repoLoading || this.state.eventsLoading) && <Loader /> )}
         {(!this.state.repoLoading && !this.state.eventsLoading && <Repos repos={this.state} />)}
       </div>
     )

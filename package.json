@@ -33,6 +33,7 @@
     "gatsby-source-filesystem": "^1.4.3",
     "gatsby-transformer-remark": "^1.7.1",
     "gatsby-transformer-sharp": "^1.6.1",
+    "halogen": "^0.2.0",
     "lodash": "^4.15.0",
     "moment": "^2.21.0",
     "normalize-css": "^2.3.1",
