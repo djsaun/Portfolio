@@ -1,11 +1,16 @@
 import React from 'react';
 import Repo from './Repo';
+import moment from 'moment';
+
 import styles from '../styles/repos.module.css'
 
 class Repos extends React.Component {
   
   render() {
     const { repos } = this.props.repos;
+    const { events } = this.props.repos;
+
+    console.log(events);
     
     return(
       <div className={styles.repos}>

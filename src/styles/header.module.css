@@ -5,8 +5,8 @@
 .headerContainer {
   margin: 0 auto;
   padding: 15px 40px;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   max-width: 1200px;
 }

@@ -11,16 +11,17 @@ class Index extends React.Component {
   constructor() {
     super();
     this.state = {
-      github: {
-        user: 'djsaun',
-        repos: [],
-        totalRepos: 0,
-        loading: true,
-        error: false
-      }
+      user: 'djsaun',
+      repos: [],
+      totalRepos: 0,
+      events: [],
+      repoLoading: true,
+      eventsLoading: true,
+      error: false
     }
 
     this.fetchRepoData = this.fetchRepoData.bind(this);
+    this.fetchEvents = this.fetchEvents.bind(this);
   }
 
   fetchRepoData(name) {
@@ -77,28 +78,45 @@ class Index extends React.Component {
     }, {headers: auth})
   }
 
+  fetchEvents(name) {
+    return axios.get(`https://api.github.com/users/${name}/events`);
+  }
+
   componentDidMount() {
 
     const reposArr = [];
+    const eventsArr = [];
 
-    this.fetchRepoData(this.state.github.user)
+    this.fetchRepoData(this.state.user)
       .then(res => {
         reposArr.push(res.data.data.repositoryOwner.repositories.edges)
         
         this.setState({
-          github: {
-            repos: reposArr[0],
-            totalRepos: res.data.data.repositoryOwner.repositories.totalCount,
-            loading: false
-          }
+          repos: reposArr[0],
+          totalRepos: res.data.data.repositoryOwner.repositories.totalCount,
+          repoLoading: false
         })
       })
       .catch(error => {
         this.setState({
-          github: {
-            error: true,
-            error_message: error.message
-          }
+          error: true,
+          error_message: error.message
+        })
+      })
+
+    this.fetchEvents(this.state.user)
+      .then(res => {
+        eventsArr.push(res.data);
+        
+        this.setState({
+          events: eventsArr[0],
+          eventsLoading: false
+        })
+      })
+      .catch(error => {
+        this.setState({
+          error: true,
+          error_message: error.message
         })
       })
   }
@@ -115,7 +133,7 @@ class Index extends React.Component {
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')}>
         </Helmet>
         {/* <Bio /> */}
-        {(!this.state.github.loading && <Repos repos={this.state.github} />)}
+        {(!this.state.repoLoading && !this.state.eventsLoading && <Repos repos={this.state} />)}
       </div>
     )
   }
