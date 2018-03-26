@@ -2,11 +2,11 @@ import React from 'react'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
 
-class Blog extends React.Component{
+class Portfolio extends React.Component {
   render() {
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
-    
-    return(
+
+    return (
       <div>
         {posts.map(post => {
           if (post.node.path !== '/404/') {
@@ -29,10 +29,10 @@ class Blog extends React.Component{
   }
 }
 
-export default Blog;
+export default Portfolio;
 
-export const pageQuery = graphql`
-  query IndexQuery {
+export const projectQuery = graphql`
+  query PorfolioQuery {
     site {
       siteMetadata {
         title
@@ -40,7 +40,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date]},
-      filter: {fileAbsolutePath: {regex: "/(posts)/.*\\.md$/"}}
+      filter: {fileAbsolutePath: {regex: "/(projects)/.*\\.md$/"}}
     ) {
       edges {
         node {
