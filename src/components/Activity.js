@@ -14,7 +14,7 @@ const Activity = (props) => {
         value.action = value.payload.action.charAt(0).toUpperCase() + value.payload.action.slice(1) + " watching";
         break;
       case "PushEvent":
-        value.action = "Made a push event on";
+        value.action = "Made a push to";
         break;
       case "IssueCommentEvent":
         value.action = value.payload.action.charAt(0).toUpperCase() + value.payload.action.slice(1) + " a comment on";
