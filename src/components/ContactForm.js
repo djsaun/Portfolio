@@ -26,26 +26,26 @@ class ContactForm extends React.Component {
   render() {
     return(
       <form onSubmit={this.handleSubmit}>
-        <div>
-          <FontAwesomeIcon icon={faUserAlt} />
+        <div className={styles.field}>
+          <FontAwesomeIcon className={styles.icon} icon={faUserAlt} />
           <label htmlFor="name">Name*</label>
           <input type="text" name="name" id="name" onChange={this.handleChange} required />
         </div>
 
-        <div>
-          <FontAwesomeIcon icon={faEnvelope} />
+        <div className={styles.field}>
+          <FontAwesomeIcon className={styles.icon} icon={faEnvelope} />
           <label htmlFor="email">Email*</label>
           <input type="email" name="email" id="email" onChange={this.handleChange} required />
         </div>
 
-        <div>
-          <FontAwesomeIcon icon={faPhone} />
+        <div className={styles.field}>
+          <FontAwesomeIcon className={styles.icon} icon={faPhone} />
           <label htmlFor="phone">Phone Number</label>
           <input type="tel" name="phone" id="phone" onChange={this.handleChange} />
         </div>
 
-        <div>
-          <FontAwesomeIcon icon={faMicrophone} />
+        <div className={styles.field}>
+          <FontAwesomeIcon className={styles.icon} icon={faMicrophone} />
           <label htmlFor="message">Message*</label>
           <textarea name="message" id="message" onChange={this.handleChange}></textarea>
         </div>
