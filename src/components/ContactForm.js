@@ -15,6 +15,15 @@ class ContactForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentDidMount() {
+    const script = document.createElement("script");
+    script.src =
+      "https://www.google.com/recaptcha/api.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
   }
@@ -130,6 +139,7 @@ class ContactForm extends React.Component {
                 <label htmlFor="message"><FontAwesomeIcon className={styles.icon} icon={faMicrophone} /> Message<span>*</span></label>
                 <textarea
                   name="message"
+                  rows='5'
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.message}
@@ -138,9 +148,17 @@ class ContactForm extends React.Component {
                 {touched.message && errors.message && <div className={styles.errorText}>{errors.message}</div>}
               </div>
 
-              <Button type="submit" text="Submit" disabled={isSubmitting}>
-                Submit
-              </Button>
+              <div className={styles.captcha}>
+                <Recaptcha
+                  sitekey={process.env.GATSBY_CAPTCHA_KEY}
+                />
+              </div>
+
+              <div className={styles.formButton}>
+                <Button type="submit" text="Submit" className={styles.button} disabled={isSubmitting}>
+                  Submit
+                </Button>
+              </div>
             </form>
           )}
         />

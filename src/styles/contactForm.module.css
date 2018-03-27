@@ -11,7 +11,7 @@
 
 .icon {
   position: absolute;
-  top: 35px;
+  top: 34px;
   left: 10px;
   margin-right: 10px;
   font-size: 18px;
@@ -33,25 +33,28 @@ label span {
 }
 
 input, textarea {
-  padding: 10px 5px 10px 0;
+  padding: 10px 5px 10px 40px;
   width: 100%;
   border: 2px solid var(--gray-light);
   font-size: 14px;
-  text-indent: 40px;
   transition: all .3s ease-in-out;
   outline: none;
+}
+
+.captcha {
+  margin-top: 20px;
 }
 
 .hasError {
   border-color: var(--red);
 }
 
-.noError {
-  border-color: var(--green);
-}
-
 .errorText {
   margin-top: 5px;
   font-size: 12px;
   color: var(--red);
+}
+
+.formButton {
+  margin-top: 20px;
 }
