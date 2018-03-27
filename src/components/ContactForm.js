@@ -1,39 +1,26 @@
 import React from 'react';
 import { Formik } from 'formik';
 const Recaptcha = require('react-recaptcha');
+import yup from 'yup';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faUserAlt, faPhone, faEnvelope, faMicrophone,  } from '@fortawesome/fontawesome-pro-regular';
 import Button from '../components/Button';
 import styles from '../styles/contactForm.module.css';
 
 class ContactForm extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-
-    this.handleSubmit = this.handleSubmit.bind(this);    
-    this.handleChange = this.handleChange.bind(this);
-  }
 
   componentDidMount() {
     const script = document.createElement("script");
-    script.src =
-      "https://www.google.com/recaptcha/api.js";
+    script.src = "https://www.google.com/recaptcha/api.js";
     script.async = true;
     script.defer = true;
     document.body.appendChild(script);
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-  }
+  executeCaptcha = function () {
+    recaptchaInstance.execute();
+  };
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
-  
   render() {
     return(
       <div>
@@ -42,9 +29,11 @@ class ContactForm extends React.Component {
             name: '',
             email: '',
             phone: '',
-            message: ''
+            message: '',
+            captcha: ''
           }}
           validate={values => {
+            console.log(values)
             // same as above, but feel free to move this into a class method now.
             let errors = {};
             if (!values.name) {
@@ -66,6 +55,10 @@ class ContactForm extends React.Component {
             if (!values.message) {
               errors.message = 'Required';
             }
+
+            if (!values.captcha) {
+              errors.captcha = 'Required';
+            }
             
             return errors;
           }}
@@ -86,9 +79,13 @@ class ContactForm extends React.Component {
               }
             );
           }}
+          validationSchema={yup.object().shape({
+            recaptcha: yup.string().required(),
+          })}
           render={({
             values,
             errors,
+            setFieldValue,
             touched,
             handleChange,
             handleBlur,
@@ -151,7 +148,11 @@ class ContactForm extends React.Component {
               <div className={styles.captcha}>
                 <Recaptcha
                   sitekey={process.env.GATSBY_CAPTCHA_KEY}
+                  render="explicit"
+                  verifyCallback={(response) => { setFieldValue("captcha", response)}}
+                  onloadCallback={() => { console.log("done loading!"); }}
                 />
+                {touched.captcha && errors.captcha && <div className={styles.errorText}>{errors.captcha}</div> }
               </div>
 
               <div className={styles.formButton}>

@@ -43,7 +43,8 @@
     "postcss-nested": "^3.0.0",
     "react-recaptcha": "^2.3.7",
     "typography-theme-grand-view": "^0.15.10",
-    "typography-theme-moraga": "^0.15.10"
+    "typography-theme-moraga": "^0.15.10",
+    "yup": "^0.24.1"
   },
   "devDependencies": {
     "gh-pages": "^0.12.0",
