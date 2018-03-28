@@ -1,8 +1,10 @@
 ---
 title: Budget Tracker
 date: "2017-04-03"
-path: "/test/"
+path: "/budget-tracker/"
 featured: true
+excerpt: "Budget Tracker is a fully-fledged budgeting application designed to allow users to monitor their spending habits. Create an unlimited amount of spending categories to provide a granularized view of where your money is going. Interactive charts allow you to track your overall and categorial spending on a month-to-month basis." 
+technologies: [Node.js, Express, Mongoose, MongoDB]
 ---
 
 This is my first post on my new fake blog! How exciting!

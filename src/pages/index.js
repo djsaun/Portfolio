@@ -7,7 +7,7 @@ import axios from 'axios';
 import Bio from '../components/Bio';
 import Repos from '../components/Repos';
 import Loader from '../components/Loader';
-
+import FeaturedProject from '../components/FeaturedProject';
 class Index extends React.Component {
   constructor() {
     super();
@@ -128,11 +128,13 @@ class Index extends React.Component {
   
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    const featuredProject = get(this, 'props.data.allMarkdownRemark.edges')
 
     return (
       <div className="test">
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')}></Helmet>
         <Bio />
+        <FeaturedProject project={featuredProject[0].node} />
         {((this.state.repoLoading || this.state.eventsLoading) && <Loader /> )}
         {(!this.state.repoLoading && !this.state.eventsLoading && <Repos repos={this.state} />)}
       </div>
@@ -143,5 +145,29 @@ class Index extends React.Component {
 Index.propTypes = {
   route: React.PropTypes.object,
 }
+
+export const featuredProjectQuery = graphql`
+  query FeaturedProjectQuery {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date]},
+      filter: {fileAbsolutePath: {regex: "/(projects)/.*\\.md$/"}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            path
+            date(formatString: "DD MMMM, YYYY")
+            featured
+            excerpt
+            technologies
+          }
+        }
+      }
+    }
+  }
+`
+
+
 
 export default Index
