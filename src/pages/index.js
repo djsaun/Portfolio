@@ -134,7 +134,7 @@ class Index extends React.Component {
 
     const featuredSection = {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
       gridGap: '20px 40px'
     }
 
@@ -147,7 +147,11 @@ class Index extends React.Component {
           <FeaturedProject project={featuredProject[0].node} />
           <div>
             <h2>Recent Posts</h2>
-            <BlogPreview posts={recentPosts} />
+            {recentPosts.map((post, i) => {
+              return (
+                <BlogPreview key={i} content={post.node} />
+              )
+            })}
           </div>
         </div>
         {((this.state.repoLoading || this.state.eventsLoading) && <Loader /> )}
@@ -183,6 +187,7 @@ export const featuredSectionQuery = graphql`
             featured
             excerpt
             technologies
+            repo
           }
         }
       }
@@ -190,7 +195,7 @@ export const featuredSectionQuery = graphql`
 
     posts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date]},
-      limit: 3,
+      limit: 2,
       filter: {fileAbsolutePath: {regex: "/(posts)/.*\\.md$/"}}
     ) {
       edges {

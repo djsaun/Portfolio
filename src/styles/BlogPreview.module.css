@@ -1,0 +1,9 @@
+.title {
+  margin: 0;
+}
+
+.date {
+  margin: 5px 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+}

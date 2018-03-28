@@ -12,7 +12,9 @@ class Repos extends React.Component {
     return(
       <div className={styles.repos}>
         <div className="recent">
-          <h2 className={styles.header}>Recent Projects</h2>
+          <div className={styles.header}>
+            <h2 className={styles.sectionHeader}>Recent Projects</h2>
+          </div>
 
           {repos && Object.keys(repos).map((key, i) => {
           return (
@@ -21,7 +23,9 @@ class Repos extends React.Component {
           })}
         </div>
         <div className="activity-feed">
-          <h2 className={styles.header}>Recent Activity</h2>
+          <div className={styles.header}>
+            <h2 className={styles.sectionHeader}>Recent Activity</h2>
+          </div>
            <Activity events={events} />
         </div>
       </div>

@@ -28,12 +28,13 @@
   background: var(--gray-light);
   font-size: 13px;
   color: var(--white);
+  border-radius: 2px;
 }
 
 .buttons > div {
   display: inline-block;
 }
 
-.buttons > div:first-of-type {
+.buttons > div:not(:last-of-type) {
   margin-right: 15px;
 }
