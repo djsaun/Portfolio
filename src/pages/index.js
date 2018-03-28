@@ -149,8 +149,14 @@ Index.propTypes = {
 export const featuredProjectQuery = graphql`
   query FeaturedProjectQuery {
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date]},
-      filter: {fileAbsolutePath: {regex: "/(projects)/.*\\.md$/"}}
+      filter: {
+        frontmatter: {
+          featured: {
+            eq: true
+          }
+        }
+        fileAbsolutePath: {regex: "/(projects)/.*\\.md$/"}
+      }    
     ) {
       edges {
         node {
