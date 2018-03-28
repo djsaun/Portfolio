@@ -1,0 +1,27 @@
+@import "./colors.css";
+
+.project {
+  padding: 15px;
+  border: 1px solid var(--gray-light);
+}
+
+.title {
+  margin-top: 0;
+}
+
+.tech {
+  margin-right: 10px;
+  padding: 6px;
+  display: inline-block;
+  background: var(--gray-light);
+  font-size: 13px;
+  color: var(--white);
+}
+
+.buttons > div {
+  display: inline-block;
+}
+
+.buttons > div:first-of-type {
+  margin-right: 15px;
+}

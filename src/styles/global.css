@@ -6,6 +6,7 @@ body {
 
 p {
   color: var(--gray-light);
+  line-height: 1.4;
 }
 
 a {

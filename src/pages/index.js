@@ -131,9 +131,10 @@ class Index extends React.Component {
     const featuredProject = get(this, 'props.data.allMarkdownRemark.edges')
 
     return (
-      <div className="test">
+      <div>
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')}></Helmet>
         <Bio />
+        {/* Make FeaturedProject half width -- align with recent post */}
         <FeaturedProject project={featuredProject[0].node} />
         {((this.state.repoLoading || this.state.eventsLoading) && <Loader /> )}
         {(!this.state.repoLoading && !this.state.eventsLoading && <Repos repos={this.state} />)}
@@ -163,6 +164,7 @@ export const featuredProjectQuery = graphql`
           frontmatter {
             title
             path
+            link
             date(formatString: "DD MMMM, YYYY")
             featured
             excerpt
