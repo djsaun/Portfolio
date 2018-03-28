@@ -12,7 +12,7 @@ class Repos extends React.Component {
     return(
       <div className={styles.repos}>
         <div className="recent">
-          <h2 className={styles.header}>Projects</h2>
+          <h2 className={styles.header}>Recent Projects</h2>
 
           {repos && Object.keys(repos).map((key, i) => {
           return (

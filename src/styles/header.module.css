@@ -44,8 +44,8 @@
 }
 
 .menu {
-  display: flex;
-  justify-self: end;
+  /* display: flex;
+  justify-self: end; */
 }
 
 .menuLink {

@@ -80,7 +80,7 @@ class Index extends React.Component {
   }
 
   fetchEvents(name) {
-    return axios.get(`https://api.github.com/users/${name}/events?per_page=20`);
+    return axios.get(`https://api.github.com/users/${name}/events?per_page=15`);
   }
 
   componentDidMount() {
