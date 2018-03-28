@@ -8,6 +8,7 @@ import Bio from '../components/Bio';
 import Repos from '../components/Repos';
 import Loader from '../components/Loader';
 import FeaturedProject from '../components/FeaturedProject';
+import BlogPreview from '../components/BlogPreview';
 class Index extends React.Component {
   constructor() {
     super();
@@ -128,7 +129,8 @@ class Index extends React.Component {
   
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const featuredProject = get(this, 'props.data.allMarkdownRemark.edges')
+    const featuredProject = get(this, 'props.data.project.edges')
+    const recentPosts = get(this, 'props.data.posts.edges')
 
     const featuredSection = {
       display: 'grid',
@@ -143,7 +145,10 @@ class Index extends React.Component {
         {/* Make FeaturedProject half width -- align with recent post */}
         <div style={featuredSection}>
           <FeaturedProject project={featuredProject[0].node} />
-
+          <div>
+            <h2>Recent Posts</h2>
+            <BlogPreview posts={recentPosts} />
+          </div>
         </div>
         {((this.state.repoLoading || this.state.eventsLoading) && <Loader /> )}
         {(!this.state.repoLoading && !this.state.eventsLoading && <Repos repos={this.state} />)}
@@ -156,9 +161,9 @@ Index.propTypes = {
   route: React.PropTypes.object,
 }
 
-export const featuredProjectQuery = graphql`
-  query FeaturedProjectQuery {
-    allMarkdownRemark(
+export const featuredSectionQuery = graphql`
+  query featuredSectionQuery {
+    project: allMarkdownRemark(
       filter: {
         frontmatter: {
           featured: {
@@ -178,6 +183,25 @@ export const featuredProjectQuery = graphql`
             featured
             excerpt
             technologies
+          }
+        }
+      }
+    }
+
+    posts: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date]},
+      limit: 3,
+      filter: {fileAbsolutePath: {regex: "/(posts)/.*\\.md$/"}}
+    ) {
+      edges {
+        node {
+          excerpt
+          frontmatter {
+            path
+            date(formatString: "DD MMMM, YYYY")
+          }
+          frontmatter {
+            title
           }
         }
       }
