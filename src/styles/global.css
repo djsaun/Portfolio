@@ -10,7 +10,7 @@ p {
 }
 
 a {
-  color: var(--red);
+  color: var(--green);
   transition: all .3s ease;
 }
 

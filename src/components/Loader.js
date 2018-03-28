@@ -5,7 +5,7 @@ class Loader extends React.Component {
   render() {
     return(
       <div className={styles.loaderContainer}>
-        <RingLoader color="#DC3522" size="80px"/>
+        <RingLoader color="#7A9B76" size="80px"/>
       </div>
     )
   }

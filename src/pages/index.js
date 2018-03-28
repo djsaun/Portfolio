@@ -142,7 +142,6 @@ class Index extends React.Component {
       <div>
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')}></Helmet>
         <Bio />
-        {/* Make FeaturedProject half width -- align with recent post */}
         <div style={featuredSection}>
           <FeaturedProject project={featuredProject[0].node} />
           <div>

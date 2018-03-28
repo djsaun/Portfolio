@@ -14,8 +14,10 @@
 }
 
 .sectionHeader {
+  margin-bottom: 40px;
   position: relative;
   display: inline-block;
+  font-size: 1.75em;
 }
 
 .sectionHeader::after {

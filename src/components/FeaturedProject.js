@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'gatsby-link';
 import Button from './Button';
 import styles from '../styles/featuredProject.module.css';
 
@@ -22,7 +23,7 @@ const FeaturedProject = (props) => {
         </div>
         <p>{project.excerpt}</p>
         <div className={styles.buttons}>
-          <Button text="Learn More" link={project.path} />
+          <Link className={styles.button} to={project.path}>Learn More</Link>
           <Button text="View Project" link={project.link} target="_blank" />
         </div>
       </div>

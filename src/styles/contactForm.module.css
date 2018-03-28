@@ -15,7 +15,7 @@
   left: 10px;
   margin-right: 10px;
   font-size: 18px;
-  color: var(--green);
+  color: var(--beige);
   transition: all .75s ease;
   z-index: 1;
 }

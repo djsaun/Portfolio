@@ -4,13 +4,14 @@
   padding: 10px 20px;
   display: inline-block;
   background: none;
-  border: 2px solid var(--red);
+  color: var(--green);
+  border: 2px solid var(--green);
   border-radius: 4px;
   transition: all .3s ease;
   cursor: pointer;
 }
 
 .button:hover, .button:active, .button:focus {
-  background: var(--red);
+  background: var(--green);
   color: var(--white);
 }
