@@ -130,12 +130,21 @@ class Index extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const featuredProject = get(this, 'props.data.allMarkdownRemark.edges')
 
+    const featuredSection = {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+      gridGap: '20px 40px'
+    }
+
     return (
       <div>
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')}></Helmet>
         <Bio />
         {/* Make FeaturedProject half width -- align with recent post */}
-        <FeaturedProject project={featuredProject[0].node} />
+        <div style={featuredSection}>
+          <FeaturedProject project={featuredProject[0].node} />
+
+        </div>
         {((this.state.repoLoading || this.state.eventsLoading) && <Loader /> )}
         {(!this.state.repoLoading && !this.state.eventsLoading && <Repos repos={this.state} />)}
       </div>
@@ -175,7 +184,5 @@ export const featuredProjectQuery = graphql`
     }
   }
 `
-
-
 
 export default Index
