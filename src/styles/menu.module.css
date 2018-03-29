@@ -1,20 +1,32 @@
-.mobileIcon {
+.menuOpen, menuClosed {
   position: relative;
   display: none;
 }
 
-.mobileIcon > div > div {
+.menuOpen > div > div, .menuClosed > div > div {
   margin: 6px 0;
   display: block;
-  width: 28px;
+  width: 34px;
   height: 3px;
   background: var(--gray-dark);
-  transition: all .75 ease-in-out;
+  transition: all .45s ease-in-out;
   cursor: pointer;
 }
 
+.menuOpen .topBar {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menuOpen .middleBar {
+  width: 0;
+}
+
+.menuOpen .bottomBar {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
 @media (max-width: 981px) {
-  .mobileIcon {
+  .menuOpen, menuClosed {
     display: block;
   }
 }

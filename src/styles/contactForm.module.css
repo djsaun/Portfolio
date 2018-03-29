@@ -58,3 +58,10 @@ input, textarea {
 .formButton {
   margin-top: 20px;
 }
+
+@media (max-width:600px) {
+  .captcha {
+    transform: scale(0.77);
+    transform-origin: 0 0;
+  }
+}

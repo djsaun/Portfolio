@@ -22,7 +22,7 @@ class Header extends React.Component{
               </div>
             </Link>
           </div>
-          <MobileMenu openMobileMenu={this.props.openMobileMenu} />
+          <MobileMenu openMobileMenu={this.props.openMobileMenu} menuOpen={this.props.menuOpen} />
           <div className={styles.menu}>
             <Link className={styles.menuLink} to="/about">About</Link>
             <Link className={styles.menuLink} to="/portfolio">Portfolio</Link>

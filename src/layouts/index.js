@@ -45,7 +45,7 @@ class Template extends React.Component {
         {(this.state.siteLoading) ? 
           <div style={loaderStyles}><Loader /></div> : 
           <div>
-          <Header openMobileMenu={this.handleMobileMenu} />
+          <Header openMobileMenu={this.handleMobileMenu} menuOpen={this.state.mobileMenuOpen} />
           <Container>
             {children()}
           </Container>
