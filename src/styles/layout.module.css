@@ -1,0 +1,22 @@
+.mobileMenuOpen, .mobileMenuClosed {
+  transform: translateX(0px);
+  transition: transform .6s ease;
+}
+
+@media (max-width: 981px) {
+  .mobileMenuOpen {
+    transform: translateX(-250px);
+    transition: transform .6s ease;
+  }
+
+  .mobileMenuClosed {
+    transform: translateX(0px);
+    transition: transform .6s ease;
+  }
+}
+
+@media (max-width: 400px) {
+  .mobileMenuOpen {
+    transform: translateX(-180px);
+  }
+}

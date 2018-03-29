@@ -1,12 +1,14 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import normalize from 'normalize.css'
-import '../styles/global.css'
-import styles from '../styles/loader.module.css'
-import Container from '../components/Container'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import Loader from '../components/Loader'
+import React from 'react';
+import Link from 'gatsby-link';
+import normalize from 'normalize.css';
+import '../styles/global.css';
+import styles from '../styles/loader.module.css';
+import layoutStyles from '../styles/layout.module.css';
+import Container from '../components/Container';
+import Header from '../components/Header';
+import MobileMenu from '../components/MobileMenu';
+import Footer from '../components/Footer';
+import Loader from '../components/Loader';
 
 class Template extends React.Component {  
   constructor() {
@@ -45,11 +47,14 @@ class Template extends React.Component {
         {(this.state.siteLoading) ? 
           <div style={loaderStyles}><Loader /></div> : 
           <div>
-          <Header openMobileMenu={this.handleMobileMenu} menuOpen={this.state.mobileMenuOpen} />
-          <Container>
-            {children()}
-          </Container>
-          <Footer />
+            <MobileMenu menuOpen={this.state.mobileMenuOpen} />   
+            <div className={this.state.mobileMenuOpen ? layoutStyles.mobileMenuOpen : layoutStyles.mobileMenuClosed}>
+              <Header openMobileMenu={this.handleMobileMenu} menuOpen={this.state.mobileMenuOpen} />
+              <Container>
+                {children()}
+              </Container>
+              <Footer />
+            </div>        
           </div>
         }
       </div>

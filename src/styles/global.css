@@ -1,7 +1,13 @@
 @import "./colors.css";
 
+html {
+  position: relative;
+}
+
 body {
+  position: relative;
   background: var(--white);
+  overflow-x: hidden;
 }
 
 p {

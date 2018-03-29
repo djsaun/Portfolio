@@ -1,9 +1,9 @@
-.menuOpen, menuClosed {
+.menuIconOpen, .menuIconClosed {
   position: relative;
   display: none;
 }
 
-.menuOpen > div > div, .menuClosed > div > div {
+.menuIconOpen > div > div, .menuIconClosed > div > div {
   margin: 6px 0;
   display: block;
   width: 34px;
@@ -13,20 +13,55 @@
   cursor: pointer;
 }
 
-.menuOpen .topBar {
+.menuIconOpen .topBar {
   transform: translateY(8px) rotate(45deg);
 }
 
-.menuOpen .middleBar {
+.menuIconOpen .middleBar {
   width: 0;
 }
 
-.menuOpen .bottomBar {
+.menuIconOpen .bottomBar {
   transform: translateY(-10px) rotate(-45deg);
 }
 
+.mobileMenuOpen, .mobileMenuClosed {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+  width: 250px;
+  height: 100%;
+  background: var(--gray-light);
+  z-index: 2;
+}
+
+.mobileMenuClosed {
+  transform: translateX(250px);
+  transition: transform .6s ease;
+}
+
+.mobileMenuOpen {
+  transform: translateX(0px);
+  transition: transform .6s ease;
+}
+
+.menuLink {
+  color: red;
+}
+
 @media (max-width: 981px) {
-  .menuOpen, menuClosed {
+  .menuIconOpen, .menuIconClosed, .mobileMenuOpen, .mobileMenuClosed {
     display: block;
   }
+}
+
+@media (max-width: 400px) {
+  .mobileMenuOpen, .mobileMenuClosed {
+    width: 180px;
+  }
+
+  .mobileMenuClosed {
+    transform: translateX(180px);
+  }  
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import styles from "../styles/header.module.css";
-import MobileMenu from './MobileMenu';
+import MobileMenuIcon from './MobileMenuIcon';
 
 class Header extends React.Component{
   render() {
@@ -22,7 +22,7 @@ class Header extends React.Component{
               </div>
             </Link>
           </div>
-          <MobileMenu openMobileMenu={this.props.openMobileMenu} menuOpen={this.props.menuOpen} />
+          <MobileMenuIcon openMobileMenu={this.props.openMobileMenu} menuOpen={this.props.menuOpen} />
           <div className={styles.menu}>
             <Link className={styles.menuLink} to="/about">About</Link>
             <Link className={styles.menuLink} to="/portfolio">Portfolio</Link>

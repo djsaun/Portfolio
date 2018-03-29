@@ -1,17 +1,16 @@
 import React from 'react';
+import Link from 'gatsby-link';
 import styles from '../styles/menu.module.css';
 
 class MobileMenu extends React.Component {
   render() {
-    console.log(this.props.menuOpen)
-    const menuStatus = (this.props.menuOpen === false) ? styles.menuClosed : styles.menuOpen;
-
     return(
-      <div className={this.props.menuOpen ? styles.menuClosed : styles.menuOpen} onClick={(e) => this.props.openMobileMenu(e)}>
-        <div className='icon'>
-          <div className={styles.topBar}></div>
-          <div className={styles.middleBar}></div>
-          <div className={styles.bottomBar}></div>
+      <div className={this.props.menuOpen ? styles.mobileMenuOpen : styles.mobileMenuClosed}>
+        <div>
+          <Link className={styles.menuLink} to="/about">About</Link>
+          <Link className={styles.menuLink} to="/portfolio">Portfolio</Link>
+          <Link className={styles.menuLink} to="/blog">Blog</Link>
+          <Link className={styles.menuLink} to="/contact">Contact</Link>
         </div>
       </div>
     )
