@@ -1,0 +1,20 @@
+.mobileIcon {
+  position: relative;
+  display: none;
+}
+
+.mobileIcon > div > div {
+  margin: 6px 0;
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: var(--gray-dark);
+  transition: all .75 ease-in-out;
+  cursor: pointer;
+}
+
+@media (max-width: 981px) {
+  .mobileIcon {
+    display: block;
+  }
+}

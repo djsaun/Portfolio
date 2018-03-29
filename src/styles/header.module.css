@@ -52,3 +52,9 @@
 .menuLink:hover, .menuLink:active, .menuLink:focus {
   text-decoration: none;
 }
+
+@media (max-width:981px) {
+  .menu {
+    display: none;
+  }
+}

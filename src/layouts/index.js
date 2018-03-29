@@ -12,8 +12,18 @@ class Template extends React.Component {
   constructor() {
     super();
     this.state = {
-      siteLoading: true
+      siteLoading: true,
+      mobileMenuOpen: false
     }
+
+    this.handleMobileMenu = this.handleMobileMenu.bind(this);
+  }
+
+  handleMobileMenu(e) {
+    e.preventDefault();
+    this.setState({
+      mobileMenuOpen: !this.state.mobileMenuOpen
+    })
   }
 
   componentDidMount() {
@@ -35,7 +45,7 @@ class Template extends React.Component {
         {(this.state.siteLoading) ? 
           <div style={loaderStyles}><Loader /></div> : 
           <div>
-          <Header />
+          <Header openMobileMenu={this.handleMobileMenu} />
           <Container>
             {children()}
           </Container>
