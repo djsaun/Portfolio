@@ -46,10 +46,12 @@
 .menuLink {
   display: inline-block;
   margin: 0 15px;
+  color: var(--gray-dark);
   transition: all .3s ease;
 }
 
 .menuLink:hover, .menuLink:active, .menuLink:focus {
+  color: var(--green);
   text-decoration: none;
 }
 

@@ -24,10 +24,10 @@ class Header extends React.Component{
           </div>
           <MobileMenuIcon openMobileMenu={this.props.openMobileMenu} menuOpen={this.props.menuOpen} />
           <div className={styles.menu}>
-            <Link className={styles.menuLink} to="/about">About</Link>
-            <Link className={styles.menuLink} to="/portfolio">Portfolio</Link>
-            <Link className={styles.menuLink} to="/blog">Blog</Link>
-            <Link className={styles.menuLink} to="/contact">Contact</Link>
+            <Link className={styles.menuLink} activeStyle={{ color: '#7A9B76'}} to="/about">About</Link>
+            <Link className={styles.menuLink} activeStyle={{ color: '#7A9B76'}} to="/portfolio">Portfolio</Link>
+            <Link className={styles.menuLink} activeStyle={{ color: '#7A9B76'}} to="/blog">Blog</Link>
+            <Link className={styles.menuLink} activeStyle={{ color: '#7A9B76'}} to="/contact">Contact</Link>
           </div>
         </div>
       </header>

@@ -1,6 +1,7 @@
 .menuIconOpen, .menuIconClosed {
   position: relative;
   display: none;
+  cursor: pointer;
 }
 
 .menuIconOpen > div > div, .menuIconClosed > div > div {
@@ -29,10 +30,12 @@
   position: absolute;
   top: 0;
   right: 0;
+  padding: 25px;
   display: none;
   width: 250px;
   height: 100%;
-  background: var(--gray-light);
+  background: var(--gray);
+  border-left: 2px solid var(--gray-dark);
   z-index: 2;
 }
 
@@ -47,7 +50,14 @@
 }
 
 .menuLink {
-  color: red;
+  margin: 25px 0;
+  display: block;
+  color: var(--gray-dark);
+  font-size: 18px;
+}
+
+.menuLink:first-of-type {
+  margin-top: 15px;
 }
 
 @media (max-width: 981px) {
