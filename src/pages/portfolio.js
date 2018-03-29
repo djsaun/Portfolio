@@ -4,7 +4,7 @@ import get from 'lodash/get'
 
 class Portfolio extends React.Component {
   render() {
-    const posts = get(this, 'props.data.allMarkdownRemark.edges')
+    const posts = get(this, 'props.data.personal.edges')
 
     return (
       <div>
@@ -33,14 +33,40 @@ export default Portfolio;
 
 export const projectQuery = graphql`
   query PorfolioQuery {
-    site {
-      siteMetadata {
-        title
+    personal: allMarkdownRemark(
+      filter: {
+        frontmatter: {
+          type: {
+            eq: "Personal"
+          }
+        }
+        fileAbsolutePath: {regex: "/(projects)/.*\\.md$/"}
+      }
+      sort: { order: DESC, fields: [frontmatter___date]},
+    ) {
+      edges {
+        node {
+          excerpt
+          frontmatter {
+            path
+            date(formatString: "DD MMMM, YYYY")
+          }
+          frontmatter {
+            title
+          }
+        }
       }
     }
-    allMarkdownRemark(
+    professional: allMarkdownRemark(
+      filter: {
+        frontmatter: {
+          type: {
+            eq: "Professional"
+          }
+        }
+        fileAbsolutePath: {regex: "/(projects)/.*\\.md$/"}
+      }
       sort: { order: DESC, fields: [frontmatter___date]},
-      filter: {fileAbsolutePath: {regex: "/(projects)/.*\\.md$/"}}
     ) {
       edges {
         node {

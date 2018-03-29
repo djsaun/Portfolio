@@ -5,6 +5,7 @@ path: "/caritas/"
 featured: false
 excerpt: "test test test test tset"
 technologies: [HTML, CSS, JavaScript, PHP, WordPress]
+type: 'Professional'
 ---
 
 This is my first post on my new fake blog! How exciting!

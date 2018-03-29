@@ -6,6 +6,7 @@ repo: "https://github.com/djsaun/Portfolio"
 featured: true
 excerpt: "Budget Tracker is a full-fledged budgeting application designed to allow users to monitor their spending habits. Create an unlimited amount of spending categories to provide a granularized view of where your money is going. Interactive charts allow you to track your overall and categorial spending on a month-to-month basis." 
 technologies: [Node.js, Express, Mongoose, MongoDB]
+type: 'Personal'
 ---
 
 This is my first post on my new fake blog! How exciting!

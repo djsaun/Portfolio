@@ -60,6 +60,10 @@
   margin-top: 15px;
 }
 
+.menuLink:hover, .menuLink:active, .menuLink:focus {
+  color: var(--green);
+}
+
 @media (max-width: 981px) {
   .menuIconOpen, .menuIconClosed, .mobileMenuOpen, .mobileMenuClosed {
     display: block;
