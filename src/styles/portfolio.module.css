@@ -3,3 +3,9 @@
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 20px 40px;
 }
+
+@media (max-width: 500px) {
+  .portfolio {
+    grid-template-columns: 1fr;
+  }
+}

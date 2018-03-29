@@ -7,7 +7,7 @@ import axios from 'axios';
 import Bio from '../components/Bio';
 import Repos from '../components/Repos';
 import Loader from '../components/Loader';
-import FeaturedProject from '../components/FeaturedProject';
+import Project from '../components/Project';
 import BlogPreview from '../components/BlogPreview';
 
 import styles from '../styles/homepage.module.css';
@@ -131,7 +131,7 @@ class Index extends React.Component {
   
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const featuredProject = get(this, 'props.data.project.edges')
+    const project = get(this, 'props.data.project.edges')
     const recentPosts = get(this, 'props.data.posts.edges')
     
     return (
@@ -139,7 +139,12 @@ class Index extends React.Component {
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')}></Helmet>
         <Bio />
         <div className={styles.featuredSection}>
-          <FeaturedProject project={featuredProject[0].node} />
+          <div>
+            <div className={styles.header}>
+              <h2 className={styles.sectionHeader}>Featured Project</h2>
+            </div>
+            <Project project={project[0].node} />
+          </div>
           <div>
             <div className={styles.header}>
               <h2 className={styles.sectionHeader}>Recent Posts</h2>

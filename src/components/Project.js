@@ -1,17 +1,13 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import Button from './Button';
-import styles from '../styles/featuredProject.module.css';
+import styles from '../styles/project.module.css';
 
-const FeaturedProject = (props) => {
+const Project = (props) => {
   const project = props.project.frontmatter;
   
   return(
     <div>
-      <div className={styles.head}>
-        <h2 className={styles.sectionHeader}>Featured Project</h2>
-      </div>
-
       <div className={styles.project}>
         <div className={styles.header}>
           <h3 className={styles.title}>{project.title}</h3>
@@ -33,4 +29,4 @@ const FeaturedProject = (props) => {
   )
 }
 
-export default FeaturedProject;
+export default Project;
