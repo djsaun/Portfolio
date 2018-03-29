@@ -1,29 +1,56 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import get from 'lodash/get'
+import React from 'react';
+import Link from 'gatsby-link';
+import get from 'lodash/get';
+import styles from '../styles/portfolio.module.css';
 
 class Portfolio extends React.Component {
   render() {
-    const posts = get(this, 'props.data.personal.edges')
+    const personalProjects = get(this, 'props.data.personal.edges')
+    const professionalProjects = get(this, 'props.data.professional.edges')
 
     return (
-      <div>
-        {posts.map(post => {
-          if (post.node.path !== '/404/') {
-            const title = get(post, 'node.frontmatter.title') || post.node.path
-            return (
-              <div key={post.node.frontmatter.path}>
-                <h3>
-                  <Link to={post.node.frontmatter.path} >
-                    {post.node.frontmatter.title}
-                  </Link>
-                </h3>
-                <small>{post.node.frontmatter.date}</small>
-                <p dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
-              </div>
-            )
-          }
-        })}
+      <div className={styles.portfolio}>
+        <div>
+          <h2>Personal Projects</h2>
+          {personalProjects.map(post => {
+            if (post.node.path !== '/404/') {
+              const title = get(post, 'node.frontmatter.title') || post.node.path
+              return (
+                <div key={post.node.frontmatter.path}>
+                  <h3>
+                    <Link to={post.node.frontmatter.path} >
+                      {post.node.frontmatter.title}
+                    </Link>
+                  </h3>
+                  <small>{post.node.frontmatter.date}</small>
+                  <p dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
+                </div>
+              )
+            }
+          })}
+        </div>
+        
+
+        <div>
+          <h2>Professional Projects</h2>
+
+          {professionalProjects.map(post => {
+            if (post.node.path !== '/404/') {
+              const title = get(post, 'node.frontmatter.title') || post.node.path
+              return (
+                <div key={post.node.frontmatter.path}>
+                  <h3>
+                    <Link to={post.node.frontmatter.path} >
+                      {post.node.frontmatter.title}
+                    </Link>
+                  </h3>
+                  <small>{post.node.frontmatter.date}</small>
+                  <p dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
+                </div>
+              )
+            }
+          })}
+        </div>
       </div>
     )
   }

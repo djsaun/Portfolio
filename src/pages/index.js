@@ -9,6 +9,8 @@ import Repos from '../components/Repos';
 import Loader from '../components/Loader';
 import FeaturedProject from '../components/FeaturedProject';
 import BlogPreview from '../components/BlogPreview';
+
+import styles from '../styles/homepage.module.css';
 class Index extends React.Component {
   constructor() {
     super();
@@ -131,21 +133,17 @@ class Index extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const featuredProject = get(this, 'props.data.project.edges')
     const recentPosts = get(this, 'props.data.posts.edges')
-
-    const featuredSection = {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-      gridGap: '20px 40px'
-    }
-
+    
     return (
       <div>
         <Helmet title={get(this, 'props.data.site.siteMetadata.title')}></Helmet>
         <Bio />
-        <div style={featuredSection}>
+        <div className={styles.featuredSection}>
           <FeaturedProject project={featuredProject[0].node} />
           <div>
-            <h2>Recent Posts</h2>
+            <div className={styles.header}>
+              <h2 className={styles.sectionHeader}>Recent Posts</h2>
+            </div>
             {recentPosts.map((post, i) => {
               return (
                 <BlogPreview key={i} content={post.node} />

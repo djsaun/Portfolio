@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import moment from 'moment';
-import styles from '../styles/BlogPreview.module.css';
+import styles from '../styles/blogPreview.module.css';
 
 const BlogPreview = (props) => {
   return(

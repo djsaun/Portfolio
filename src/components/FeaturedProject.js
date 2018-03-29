@@ -8,7 +8,9 @@ const FeaturedProject = (props) => {
   
   return(
     <div>
-      <h2>Featured Project</h2>
+      <div className={styles.head}>
+        <h2 className={styles.sectionHeader}>Featured Project</h2>
+      </div>
 
       <div className={styles.project}>
         <div className={styles.header}>

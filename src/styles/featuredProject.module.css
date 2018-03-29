@@ -1,5 +1,30 @@
 @import "./colors.css";
 
+.head {
+  margin-top: 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+.sectionHeader {
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+  font-size: 1.75em;
+}
+
+.sectionHeader::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  margin: 0 auto;
+  content: "";
+  background: var(--beige);
+  width: 50%;
+  height: 3px;
+}
+
 .project {
   padding: 15px 15px 0;
   border: 1px solid var(--gray-light);
