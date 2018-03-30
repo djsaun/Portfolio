@@ -9,12 +9,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return new Promise((resolve, reject) => {
     const pages = []
-    const blogPost = path.resolve("./src/templates/blog-post.js")
+    const blogPost = path.resolve("./src/templates/blog-post.js");
     resolve(
       graphql(
         `
       {
-        allMarkdownRemark(limit: 1000) {
+        posts: allMarkdownRemark(limit: 1000) {
           edges {
             node {
               frontmatter {
@@ -32,7 +32,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
 
         // Create blog posts pages.
-        _.each(result.data.allMarkdownRemark.edges, edge => {
+        _.each(result.data.posts.edges, edge => {
           createPage({
             path: edge.node.frontmatter.path,
             component: blogPost,

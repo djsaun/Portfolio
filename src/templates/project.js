@@ -5,7 +5,7 @@ import get from 'lodash/get'
 
 import Bio from '../components/Bio'
 
-class BlogPostTemplate extends React.Component {
+class ProjectTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
@@ -19,16 +19,16 @@ class BlogPostTemplate extends React.Component {
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
-        {/* <Bio /> */}
+        <Bio />
       </div>
     )
   }
 }
 
-export default BlogPostTemplate
+export default ProjectTemplate
 
-export const pageQuery = graphql`
-  query BlogPostByPath($path: String!) {
+export const projectQuery = graphql`
+  query ProjectByPath($path: String!) {
     site {
       siteMetadata {
         title
