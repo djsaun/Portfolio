@@ -15,6 +15,14 @@ class ContactForm extends React.Component {
     script.async = true;
     script.defer = true;
     document.body.appendChild(script);
+
+    const emailAPI = document.createElement("script");
+    emailAPI.src = "https://apis.google.com/js/api.js";
+    emailAPI.async = true;
+    emailAPI.defer = true;
+    emailAPI.onLoad = "this.onload=function(){};handleClientLoad()";
+    emailAPI.onreadystatechange = "if (this.readyState === 'complete') this.onload()"
+    document.body.appendChild(emailAPI);
   }
 
   executeCaptcha = function () {

@@ -22,6 +22,7 @@ const Project = (props) => {
         <p>{project.excerpt}</p>
         <div className={styles.buttons}>
           <Link className={styles.button} to={project.path}>Learn More</Link>
+          {(project.repo) ? <Button text="View Repo" link={project.repo} target="_blank" /> : ''}
           <Button text="View Project" link={project.link} target="_blank" />
         </div>
       </div>
