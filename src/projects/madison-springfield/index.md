@@ -1,11 +1,11 @@
 ---
-title: Caritas
-date: "2017-04-03"
-path: "/caritas-of-austin/"
-link: "https://www.caritasofaustin.org/"
+title: Madison Springfield, Inc.
+date: "2016-03-01"
+path: "/madison-springfield/"
+linke: "https://www.madisonspringfield.com/"
 featured: false
-excerpt: "Caritas of Austin is a local non-profit that provides services for Austin's homeless population. As lead developer on this project, I oversaw the site's build out from the design stage through launch. The site was built in the WordPress CMS using HTML, PostCSS, JavaScript (ES6), and PHP. The site is fully responsive and accessible."
-technologies: [HTML, CSS, JS, PHP, WordPress]
+excerpt: "As lead developer for the redesign of the Madison Springfield, Inc. site, I worked intimately with Monkee-Boy Web Design's design department to create an experience that showcases Madison Springfield's expertise in their field. The site is fully responsive and utilizes HTML5 geolocation to suggest contact locations closest to the user. It also makes extensive use of D3.js and custom-built backend tools to associate current and past projects with their geographic locations."
+technologies: [HTML, CSS, JS, D3.js, PHP, WordPress]
 type: 'Professional'
 ---
 

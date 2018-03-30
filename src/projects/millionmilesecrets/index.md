@@ -1,10 +1,11 @@
 ---
-title: Caritas
-date: "2017-04-03"
-path: "/caritas/"
+title: Million Mile Secrets
+date: "2017-07-01"
+path: "/million-mile-secrets/"
+link: "https://millionmilesecrets.com/"
 featured: false
-excerpt: "test test test test tset"
-technologies: [HTML, CSS, JavaScript, PHP, WordPress]
+excerpt: "As lead developer for the Million Mile Secrets site redesign, I worked closely with Monkee-Boy Web Design's designers and MMS' internal staff to develop a robust blog that showcased their expertise in the credit card churning field. The site contains custom tools to showcase featured credit cards and credit card deals. The site is fully responsive and performant."
+technologies: [HTML, JS, PostCSS, PHP, WordPress]
 type: 'Professional'
 ---
 

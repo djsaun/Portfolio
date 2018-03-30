@@ -1,10 +1,11 @@
 ---
-title: Caritas
-date: "2017-04-03"
-path: "/caritas/"
+title: Lone Star Circle of Care
+date: "2017-07-01"
+path: "/lonestar/"
+link: "https://lonestarcares.org/"
 featured: false
-excerpt: "test test test test tset"
-technologies: [HTML, CSS, JavaScript, PHP, WordPress]
+excerpt: "As the lead developer on the Lone Star Circle of Care site redesign, I made use of the WordPress CMS and utilized HTML, Sass, JavaScript, jQuery, and PHP to build a site to the client's requirements. The site is fully responsive and accessible and features robust filtering tools for the clinic's locations and providers. Clinics can be filtered by city and service, both in map and list views, and providers can be filtered by clinic location, service, and languages spoken. The site also has custom built mega menus that highlight recent blog posts and CTAs."
+technologies: [HTML, CSS, JS, PHP, WordPress]
 type: 'Professional'
 ---
 

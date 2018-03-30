@@ -7,13 +7,6 @@ import Button from '../components/Button';
 import styles from '../styles/contactForm.module.css';
 
 class ContactForm extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {};
-
-  //   this.handleSubmit = this.handleSubmit.bind(this);
-  //   this.handleChange = this.handleChange.bind(this);
-  // }
 
   componentDidMount() {
     const script = document.createElement("script");
@@ -28,16 +21,6 @@ class ContactForm extends React.Component {
     recaptchaInstance.execute();
   };
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  // }
-
-  // handleChange = (e) => {
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
-
   render() {
     return (
       <div>
@@ -50,7 +33,6 @@ class ContactForm extends React.Component {
             captcha: ''
           }}
           validate={values => {
-            // same as above, but feel free to move this into a class method now.
             let errors = {};
             if (!values.name) {
               errors.name = 'Required';
@@ -80,17 +62,14 @@ class ContactForm extends React.Component {
           }}
           onSubmit={(
             values,
-            { setSubmitting, setErrors /* setValues and other goodies */ }
+            { setSubmitting, setErrors }
           ) => {
             LoginToMyApp(values).then(
               user => {
                 setSubmitting(false);
-                // do whatevs...
-                // props.updateUser(user)
               },
               errors => {
                 setSubmitting(false);
-                // Maybe transform your API's errors into the same shape as Formik's
                 setErrors(transformMyApiErrors(errors));
               }
             );
@@ -163,7 +142,6 @@ class ContactForm extends React.Component {
                     sitekey={process.env.GATSBY_CAPTCHA_KEY}
                     render="explicit"
                     verifyCallback={(response) => { setFieldValue("captcha", response)}}
-                    onloadCallback={() => { console.log("done loading!"); }}
                   />
                   {touched.captcha && errors.captcha && <div className={styles.errorText}>{errors.captcha}</div> }
                 </div>
