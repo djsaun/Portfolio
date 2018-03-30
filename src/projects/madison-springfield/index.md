@@ -2,7 +2,7 @@
 title: Madison Springfield, Inc.
 date: "2016-03-01"
 path: "/madison-springfield/"
-linke: "https://www.madisonspringfield.com/"
+link: "https://www.madisonspringfield.com/"
 featured: false
 excerpt: "As lead developer for the redesign of the Madison Springfield, Inc. site, I worked intimately with Monkee-Boy Web Design's design department to create an experience that showcases Madison Springfield's expertise in their field. The site is fully responsive and utilizes HTML5 geolocation to suggest contact locations closest to the user. It also makes extensive use of D3.js and custom-built backend tools to associate current and past projects with their geographic locations."
 technologies: [HTML, CSS, JS, D3.js, PHP, WordPress]

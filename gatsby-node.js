@@ -10,15 +10,21 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   return new Promise((resolve, reject) => {
     const pages = []
     const blogPost = path.resolve("./src/templates/blog-post.js");
+    const project = path.resolve("./src/templates/project.js");
     resolve(
       graphql(
         `
       {
-        posts: allMarkdownRemark(limit: 1000) {
+        posts: allMarkdownRemark(
+          sort: { order: DESC, fields: [frontmatter___date] }
+          limit: 1000
+        ) {
           edges {
             node {
+              fileAbsolutePath
               frontmatter {
                 path
+                title
               }
             }
           }
@@ -31,11 +37,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           reject(result.errors)
         }
 
-        // Create blog posts pages.
+        // Create posts and projects pages.
         _.each(result.data.posts.edges, edge => {
+          // If file's absolute path contains 'posts' then use the blogPost template. Otherwise, use the projects template
+          const postRegex = RegExp('\/(posts)\/.*\.md$');
+          const template = (postRegex.test(edge.node.fileAbsolutePath) ? blogPost : project);
           createPage({
             path: edge.node.frontmatter.path,
-            component: blogPost,
+            component: template,
             context: {
               path: edge.node.frontmatter.path,
             },
