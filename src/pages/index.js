@@ -136,7 +136,6 @@ class Index extends React.Component {
     
     return (
       <div>
-        <Helmet title={get(this, 'props.data.site.siteMetadata.title')}></Helmet>
         <Bio />
         <div className={styles.featuredSection}>
           <div>

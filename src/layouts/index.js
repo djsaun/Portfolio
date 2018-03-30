@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import get from 'lodash/get';
+import Helmet from 'react-helmet';
 import normalize from 'normalize.css';
 import '../styles/global.css';
 import styles from '../styles/loader.module.css';
@@ -44,6 +46,7 @@ class Template extends React.Component {
 
     return (
       <div>
+        <Helmet title={get(this, 'props.data.site.siteMetadata.title')}></Helmet>
         {(this.state.siteLoading) ? 
           <div style={loaderStyles}><Loader /></div> : 
           <div>
@@ -69,3 +72,14 @@ Template.propTypes = {
 }
 
 export default Template
+
+export const siteQuery = graphql`
+  query siteQuery {
+    site {
+      siteMetadata {
+        title
+        author
+      }
+    }
+  }
+`
