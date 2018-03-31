@@ -1,11 +1,8 @@
 {
-  "name": "gatsby-starter-blog-no-styles",
-  "description": "Starter Gatsby Blog No Styles",
+  "name": "david-saunders-portfolio",
+  "description": "David Saunders' Portfolio Site",
   "version": "1.0.0",
-  "author": "Noah Glusenkamp <noah.glusenkamp@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
-  },
+  "author": "David Saunders <djsaun@gmail.com>",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.4",
     "@fortawesome/fontawesome-free-brands": "^5.0.8",
@@ -52,7 +49,6 @@
     "gh-pages": "^0.12.0",
     "prettier": "^1.6.1"
   },
-  "homepage": "https://github.com/noahg/gatsby-starter-blog-no-styles#readme",
   "keywords": [
     "gatsby"
   ],
@@ -60,7 +56,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/noahg/gatsby-starter-blog-no-styles.git"
+    "url": "https://github.com/djsaun/Portfolio"
   },
   "scripts": {
     "dev": "gatsby develop",
