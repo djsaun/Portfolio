@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import { Formik } from 'formik';
 const Recaptcha = require('react-recaptcha');
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
@@ -15,14 +16,6 @@ class ContactForm extends React.Component {
     script.async = true;
     script.defer = true;
     document.body.appendChild(script);
-
-    const emailAPI = document.createElement("script");
-    emailAPI.src = "https://apis.google.com/js/api.js";
-    emailAPI.async = true;
-    emailAPI.defer = true;
-    emailAPI.onLoad = "this.onload=function(){};handleClientLoad()";
-    emailAPI.onreadystatechange = "if (this.readyState === 'complete') this.onload()"
-    document.body.appendChild(emailAPI);
   }
 
   executeCaptcha = function () {
@@ -32,6 +25,12 @@ class ContactForm extends React.Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <script async defer src="https://apis.google.com/js/api.js"
+            onload="this.onload=function(){};handleClientLoad()"
+            onreadystatechange="if (this.readyState === 'complete') this.onload()">
+          </script>
+        </Helmet>
         <Formik
           initialValues={{
             name: '',
@@ -41,6 +40,7 @@ class ContactForm extends React.Component {
             captcha: ''
           }}
           validate={values => {
+            console.log(values)
             let errors = {};
             if (!values.name) {
               errors.name = 'Required';
@@ -72,15 +72,7 @@ class ContactForm extends React.Component {
             values,
             { setSubmitting, setErrors }
           ) => {
-            LoginToMyApp(values).then(
-              user => {
-                setSubmitting(false);
-              },
-              errors => {
-                setSubmitting(false);
-                setErrors(transformMyApiErrors(errors));
-              }
-            );
+
           }}
           render={({
             values,
@@ -150,6 +142,7 @@ class ContactForm extends React.Component {
                     sitekey={process.env.GATSBY_CAPTCHA_KEY}
                     render="explicit"
                     verifyCallback={(response) => { setFieldValue("captcha", response)}}
+                    onloadCallback={() => { console.log("captcha loaded"); }}
                   />
                   {touched.captcha && errors.captcha && <div className={styles.errorText}>{errors.captcha}</div> }
                 </div>
