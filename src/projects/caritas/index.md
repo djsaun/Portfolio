@@ -4,7 +4,7 @@ date: "2017-04-03"
 path: "/caritas-of-austin/"
 link: "https://www.caritasofaustin.org/"
 featured: false
-excerpt: "Caritas of Austin is a local non-profit that provides services for Austin's homeless population. As lead developer on this project, I oversaw the site's build out from the design stage through launch. The site was built in the WordPress CMS using HTML, PostCSS, JavaScript (ES6), and PHP. The site is fully responsive and accessible."
+excerpt: "Caritas of Austin is a local non-profit that provides services for Austin's homeless population. As lead developer on this Monkee-Boy Web Design project, I oversaw the site's build out from the design stage through launch. The site was built in the WordPress CMS using HTML, PostCSS, JavaScript (ES6), and PHP. The site is fully responsive and accessible."
 technologies: [HTML, CSS, JS, PHP, WordPress]
 type: 'Professional'
 ---

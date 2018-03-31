@@ -10,6 +10,10 @@ body {
   overflow-x: hidden;
 }
 
+h1 {
+  text-align: center;
+}
+
 p {
   color: var(--gray-light);
   line-height: 1.4;
