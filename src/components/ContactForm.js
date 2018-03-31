@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Formik } from 'formik';
 const Recaptcha = require('react-recaptcha');
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { faUserAlt, faPhone, faEnvelope, faMicrophone, } from '@fortawesome/fontawesome-pro-regular';
+import { faUserAlt, faPhone, faEnvelope, faMicrophone, faBrowser, } from '@fortawesome/fontawesome-pro-regular';
 import Button from '../components/Button';
 import styles from '../styles/contactForm.module.css';
 const mailgun = require('mailgun.js');
@@ -35,6 +35,7 @@ class ContactForm extends React.Component {
             name: '',
             email: '',
             phone: '',
+            website: '',
             message: '',
             captcha: ''
           }}
@@ -154,7 +155,18 @@ class ContactForm extends React.Component {
                 </div>
 
                 <div className={styles.field}>
-                  <label htmlFor="message"><FontAwesomeIcon className={styles.icon} icon={faMicrophone} /> Message<span>*</span></label>
+                  <label htmlFor="website"><FontAwesomeIcon className={styles.icon} icon={faBrowser} /> Website</label>
+                  <input
+                    type="text"
+                    name="website"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.website}
+                  />
+                </div>
+
+                <div className={styles.field}>
+                  <label htmlFor="message"><FontAwesomeIcon className={styles.icon} icon={faMicrophone} /> How Can I Help?<span>*</span></label>
                   <textarea
                     name="message"
                     rows='5'
