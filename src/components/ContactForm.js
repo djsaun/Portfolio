@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Formik } from 'formik';
 const Recaptcha = require('react-recaptcha');
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { faUserAlt, faPhone, faEnvelope, faMicrophone, faBrowser, } from '@fortawesome/fontawesome-pro-regular';
+import { faUserAlt, faPhone, faEnvelope, faMicrophone, faBrowser } from '@fortawesome/fontawesome-pro-regular';
 import Button from '../components/Button';
 import styles from '../styles/contactForm.module.css';
 const mailgun = require('mailgun.js');

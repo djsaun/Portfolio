@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'gatsby-link';
 import profilePic from '../images/david_saunders.jpeg';
 
 const Bio = (props) => {
@@ -8,12 +9,9 @@ const Bio = (props) => {
         src={profilePic}
         alt={`David Saunders`}
       /> */}
-      <p>Hey! I'm <strong>David Saunders</strong>. I'm a Front-End Web Developer living and working in Austin, TX. </p>
-      {/* Written by <strong>Kyle Mathews</strong> who lives and works in San
-      Francisco building useful things.{' '}
-      <a href="https://twitter.com/kylemathews">
-        You should follow him on Twitter
-      </a> */}
+      <p>Hey! I'm <strong>David Saunders</strong>.</p>
+      <p>I currently work as a Front End Web Developer at <a href="https://monkee-boy.com" target="_blank">Monkee-Boy Web Design</a> in Austin, TX.</p>
+      <p>Want to start working together? <Link to="/contact">Let me know the details of your project</Link> and I'll be in touch soon.</p>
     </div>
   )
 }

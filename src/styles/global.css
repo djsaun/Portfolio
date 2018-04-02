@@ -27,3 +27,7 @@ a {
 a:hover, a:active, a:focus {
   color: var(--gray-light);
 }
+
+img {
+  border: 3px solid var(--green);
+}
