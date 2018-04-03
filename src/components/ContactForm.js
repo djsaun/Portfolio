@@ -6,7 +6,9 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faUserAlt, faPhone, faEnvelope, faMicrophone, faBrowser, } from '@fortawesome/fontawesome-pro-regular';
 import Button from '../components/Button';
 import styles from '../styles/contactForm.module.css';
-
+const mailgun = require('mailgun.js');
+const mailgun_api_key = process.env.GATSBY_MAILGUN_API_KEY;
+const domain = process.env.GATSBY_DOMAIN;
 class ContactForm extends React.Component {
 
   componentDidMount() {
@@ -21,8 +23,6 @@ class ContactForm extends React.Component {
   executeCaptcha = function () {
     recaptchaInstance.execute();
   };
-
-
 
   render() {
     return (
