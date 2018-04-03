@@ -6,9 +6,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faUserAlt, faPhone, faEnvelope, faMicrophone, faBrowser, } from '@fortawesome/fontawesome-pro-regular';
 import Button from '../components/Button';
 import styles from '../styles/contactForm.module.css';
-const mailgun = require('mailgun.js');
-const mailgun_api_key = process.env.GATSBY_MAILGUN_API_KEY;
-const domain = process.env.GATSBY_DOMAIN;
+
 class ContactForm extends React.Component {
 
   componentDidMount() {
@@ -37,7 +35,7 @@ class ContactForm extends React.Component {
             captcha: ''
           }}
           validate={values => {
-            console.log(values)
+            
             let errors = {};
             if (!values.name) {
               errors.name = 'Required';
@@ -67,8 +65,10 @@ class ContactForm extends React.Component {
           }}
           onSubmit={(
             values,
-            { setSubmitting, setErrors }
-          )}
+            { setSubmitting, setErrors /* setValues and other goodies */ }
+          ) => {
+            console.log('form submitting');
+          }}
           render={({
             values,
             errors,
@@ -79,7 +79,8 @@ class ContactForm extends React.Component {
             handleSubmit,
             isSubmitting,
           }) => (
-              <form onSubmit={handleSubmit} className={styles.form}>
+              <form onSubmit={handleSubmit} className={styles.form} action="https://formspree.io/djsaun@gmail.com"
+              method="POST">
                 <div className={styles.field}>
                   <label htmlFor="name"><FontAwesomeIcon className={styles.icon} icon={faUserAlt} /> Name<span>*</span></label>
                   <input
