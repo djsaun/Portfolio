@@ -31,6 +31,7 @@
     "gatsby-source-filesystem": "^1.4.3",
     "gatsby-transformer-remark": "^1.7.1",
     "gatsby-transformer-sharp": "^1.6.1",
+    "halogen": "^0.2.0",
     "lodash": "^4.15.0",
     "mailgun-js": "^0.16.0",
     "mailgun.js": "^2.0.1",

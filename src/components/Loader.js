@@ -4,7 +4,7 @@ class Loader extends React.Component {
   render() {
     return(
       <div className={styles.loaderContainer}>
-      test test test
+        <div className={styles.loader}></div>
       </div>
     )
   }
