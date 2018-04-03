@@ -3,13 +3,10 @@ import axios from 'axios';
 import { Formik } from 'formik';
 const Recaptcha = require('react-recaptcha');
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { faUserAlt, faPhone, faEnvelope, faMicrophone, faBrowser } from '@fortawesome/fontawesome-pro-regular';
+import { faUserAlt, faPhone, faEnvelope, faMicrophone, faBrowser, } from '@fortawesome/fontawesome-pro-regular';
 import Button from '../components/Button';
 import styles from '../styles/contactForm.module.css';
-const mailgun = require('mailgun.js');
-const mailgun_api_key = process.env.GATSBY_MAILGUN_API_KEY;
-const domain = process.env.GATSBY_DOMAIN;
-// const mg = mailgun.client({ username: mailgun_api_key, key: domain });
+
 class ContactForm extends React.Component {
 
   componentDidMount() {
@@ -71,39 +68,7 @@ class ContactForm extends React.Component {
           onSubmit={(
             values,
             { setSubmitting, setErrors }
-          ) => {
-            axios({
-                method: 'post',
-                url: `https://api:${mailgun_api_key}@api.mailgun.net/v3/${domain}/messages`,
-                auth: {
-                    username: 'api',
-                    password: mailgun_api_key
-                },
-                params: {
-                    from: 'Awesome Development Team <noreply@gmail.com>',
-                    to: 'djsaun@gmail.com',
-                    subject: 'Hello',
-                    text: 'Welcome to the team!'
-                }
-            }).then(
-                response => {
-                    console.log(response)
-                },
-                reject => {
-                    console.log(reject)
-                }
-            )
-            // console.log(domain)
-            // mg.messages.create(domain, {
-            //   from: "Excited User <djsaun@gmail.com>",
-            //   to: ["djsaun@gmail.com"],
-            //   subject: "Hello",
-            //   text: "Testing some Mailgun awesomness!",
-            //   html: "<h1>Testing some Mailgun awesomness!</h1>"
-            // })
-            // .then(msg => console.log(msg)) // logs response data
-            // .catch(err => console.log(err)); // logs any error
-          }}
+          )}
           render={({
             values,
             errors,
