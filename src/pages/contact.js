@@ -2,8 +2,11 @@ import React from 'react';
 import ContactForm from '../components/ContactForm';
 
 class Contact extends React.Component{
+  constructor() {
+    super();
+  }
+
   render() {
-    
     return(
       <div>
         <h1>Get In Touch</h1>

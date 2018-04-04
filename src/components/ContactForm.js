@@ -12,7 +12,8 @@ class ContactForm extends React.Component {
     super();
 
     this.state = {
-      submitted: false
+      submitted: false,
+      error: null
     }
   }
 
@@ -30,6 +31,9 @@ class ContactForm extends React.Component {
   };
 
   render() {
+
+    const self = this;
+
     const encode = data =>
       Object.keys(data)
         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
@@ -37,6 +41,11 @@ class ContactForm extends React.Component {
 
     return (
       <div>
+        {this.state.error ? <p>An error occurred while submitted the form. Please try again.</p> : ''}
+        {(this.state.submitted === true && !this.state.error) ? 
+        
+        <p className={styles.confirmationMessage}>Thank you for contacting me!<br/><br/>I'm reviewing your submission and should get back to you in the next 24 hours.</p> : 
+        
         <Formik
           initialValues={{
             name: '',
@@ -87,7 +96,7 @@ class ContactForm extends React.Component {
 
             axios({
               method: 'post',
-              url: `https://api.mailgun.net/v3/dev--confident-mclean-87d879.netlify.com/messages`,
+              url: `https://api.mailgun.net/v3/${process.env.GATSBY_DOMAIN}/messages`,
               auth: {
                 username: 'api',
                 password: process.env.GATSBY_MAILGUN_API_KEY
@@ -98,18 +107,15 @@ class ContactForm extends React.Component {
                 subject: 'New Submission From Portfolio Contact Form',
                 html: emailText
               }
-            }).then(
-              response => {
-                this.setState({
-                  submitted: true
-                })
-              },
-              reject => {
-                console.log(reject)
-              }
-            )
-
-
+            }).then((response) => {
+               console.log(response);
+               this.setState({submitted: true})
+             })
+            .catch((error)=>{
+               console.log(error);
+              this.setState({ submitted: false, error })
+            });
+            
           }}
           render={({
             values,
@@ -203,6 +209,7 @@ class ContactForm extends React.Component {
               </form>
             )}
         />
+      }
       </div>
     )
   }
