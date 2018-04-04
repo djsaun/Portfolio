@@ -7,7 +7,9 @@ const Activity = (props) => {
   let last_year = "";
 
   const github_activities = events.reduce((events, value, index) => {
-    value.created_at = moment(value.created_at).format('MMM DD, YYYY');
+
+    value.abbrDate = moment(value.created_at).format('MMM DD, YYYY');
+    value.created_time = moment(value.created_at).format('h:mm a');
 
     switch(value.type) {
       case "WatchEvent":
@@ -41,14 +43,14 @@ const Activity = (props) => {
         value.action = "Made a comment on a commit in";
         break;
     }
-    if(value.created_at != last_year) {
+    if(value.abbrDate != last_year) {
       var tempArr = [];
       tempArr.push(value);
-      events.push({'year': value.created_at, 'data': tempArr});
+      events.push({'year': value.abbrDate, 'data': tempArr});
     } else {
       events[events.length-1].data.push(value);
     }
-    last_year = value.created_at;
+    last_year = value.abbrDate;
 
     return events;
   }, [])
@@ -59,7 +61,7 @@ const Activity = (props) => {
        <div className="event" key={i}>
          <h4 className={styles.date}>{event.year}</h4>
          {event.data.map((action, i) => 
-           <p key={i}><a href={`https://github.com/${action.repo.name}`} target="_blank">{action.action} {action.repo.name}</a></p>
+           <p key={i}><a href={`https://github.com/${action.repo.name}`} target="_blank">{action.action} {action.repo.name} at {action.created_time}</a></p>
          )}
        </div>
        )}
