@@ -5,7 +5,7 @@ import styles from '../styles/blogPreview.module.css';
 
 const BlogPreview = (props) => {
   return(
-    <div key={props.content.frontmatter.path}>
+    <div className={styles.blog} key={props.content.frontmatter.path}>
       <h3 className={styles.title}>
         <Link to={props.content.frontmatter.path} >
           {props.content.frontmatter.title}

@@ -1,0 +1,14 @@
+h1 {
+  margin-bottom: 10px;
+}
+
+.date {
+  margin: 10px 0 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.content {
+  margin-top: 40px;
+}
