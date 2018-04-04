@@ -7,6 +7,7 @@ featured: false
 excerpt: "I worked as the lead developer for Monkee-Boy Web Design on the We Are Blood website, a design and branding refresh for the Blood Center of Central Texas. The site was developed in the WordPress CMS using HTML, CSS (Sass), JavaScript, jQuery, and PHP. The site is fully responsive and makes use of the Facebook and Twitter APIs to pull in recent social media posts and features a robust events calendar to keep the community apprised of upcoming donation and outreach events."
 technologies: [HTML, CSS, JS, PHP, WordPress]
 type: 'Professional'
+readMore: false
 ---
 
 This is my first post on my new fake blog! How exciting!

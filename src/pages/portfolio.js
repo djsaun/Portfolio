@@ -47,6 +47,7 @@ export const projectQuery = graphql`
           technologies
           repo
           type
+          readMore
           }
         }
       }

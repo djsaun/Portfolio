@@ -7,6 +7,7 @@ featured: false
 excerpt: "As lead developer for the Million Mile Secrets site redesign, I worked closely with Monkee-Boy Web Design's designers and MMS' internal staff to develop a robust blog that showcased their expertise in the credit card churning field. The site contains custom tools to showcase featured credit cards and credit card deals. The site is fully responsive and performant."
 technologies: [HTML, JS, PostCSS, PHP, WordPress]
 type: 'Professional'
+readMore: false
 ---
 
 This is my first post on my new fake blog! How exciting!
