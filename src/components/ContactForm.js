@@ -8,6 +8,13 @@ import Button from '../components/Button';
 import styles from '../styles/contactForm.module.css';
 
 class ContactForm extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      submitted: false
+    }
+  }
 
   componentDidMount() {
     const script = document.createElement("script");
@@ -23,6 +30,11 @@ class ContactForm extends React.Component {
   };
 
   render() {
+    const encode = data =>
+      Object.keys(data)
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+        .join('&')
+
     return (
       <div>
         <Formik
@@ -35,7 +47,7 @@ class ContactForm extends React.Component {
             captcha: ''
           }}
           validate={values => {
-            
+
             let errors = {};
             if (!values.name) {
               errors.name = 'Required';
@@ -67,7 +79,37 @@ class ContactForm extends React.Component {
             values,
             { setSubmitting, setErrors /* setValues and other goodies */ }
           ) => {
-            console.log('form submitting');
+            let emailText = '';
+
+            Object.keys(values).map((value, i) => {
+              emailText += `<p><strong>${value}</strong>: ${values[value]} </p><br/>`
+            })
+
+            axios({
+              method: 'post',
+              url: `https://api.mailgun.net/v3/dev--confident-mclean-87d879.netlify.com/messages`,
+              auth: {
+                username: 'api',
+                password: process.env.GATSBY_MAILGUN_API_KEY
+              },
+              params: {
+                from: 'David Saunders <david@monkee-boy.com>',
+                to: 'djsaun@gmail.com',
+                subject: 'New Submission From Portfolio Contact Form',
+                html: emailText
+              }
+            }).then(
+              response => {
+                this.setState({
+                  submitted: true
+                })
+              },
+              reject => {
+                console.log(reject)
+              }
+            )
+
+
           }}
           render={({
             values,
@@ -79,8 +121,7 @@ class ContactForm extends React.Component {
             handleSubmit,
             isSubmitting,
           }) => (
-              <form onSubmit={handleSubmit} className={styles.form} action="https://formspree.io/djsaun@gmail.com"
-              method="POST">
+              <form onSubmit={handleSubmit} name="contact" data-netlify="true" data-netlify-honeypot="bot-field" className={styles.form}>
                 <div className={styles.field}>
                   <label htmlFor="name"><FontAwesomeIcon className={styles.icon} icon={faUserAlt} /> Name<span>*</span></label>
                   <input
@@ -148,16 +189,16 @@ class ContactForm extends React.Component {
                   <Recaptcha
                     sitekey={process.env.GATSBY_CAPTCHA_KEY}
                     render="explicit"
-                    verifyCallback={(response) => { setFieldValue("captcha", response)}}
+                    verifyCallback={(response) => { setFieldValue("captcha", response) }}
                     onloadCallback={() => { console.log("captcha loaded"); }}
                   />
-                  {touched.captcha && errors.captcha && <div className={styles.errorText}>{errors.captcha}</div> }
+                  {touched.captcha && errors.captcha && <div className={styles.errorText}>{errors.captcha}</div>}
                 </div>
 
                 <div className={styles.formButton}>
-                  <Button type="submit" text="Submit" className={styles.button} disabled={isSubmitting}>
+                  <Button type="submit" text="Submit" className={styles.button}>
                     Submit
-                </Button>
+                  </Button>
                 </div>
               </form>
             )}
