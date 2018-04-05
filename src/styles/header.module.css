@@ -14,10 +14,12 @@
 }
 
 .logo {
+  color: var(--gray-dark);
   transition: all .3s ease;
 }
 
 .logo:hover, .logo:active, .logo:focus {
+  color: var(--gray-dark);
   text-decoration: none;
 }
 
