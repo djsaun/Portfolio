@@ -13,7 +13,7 @@ const Bio = (props) => {
       />
       <div className={styles.bioDetails}>
         <h3>Hey! I'm David Saunders.</h3>
-        <p>I currently work as a Front End Web Developer at <a href="https://monkee-boy.com" target="_blank">Monkee-Boy Web Design</a> in Austin, TX.</p>
+        <p>I'm a Front End Web Developer at <a href="https://monkee-boy.com" target="_blank">Monkee-Boy Web Design</a> in Austin, TX.</p>
         <p>Want to start working together? <Link to="/contact">Let me know the details of your project</Link> and I'll be in touch soon.</p>
       </div>
     </div>
