@@ -41,7 +41,7 @@ class ContactForm extends React.Component {
 
     return (
       <div>
-        {this.state.error ? <p className={styles.error}>An error occurred while submitted the form. Please try again.</p> : ''}
+        {this.state.error ? <p className={styles.error}>An error occurred while submitting the form. Please try again. If the problem persists, please email me at <a href="mailto:djsaun@gmail.com">djsaun@gmail.com</a></a></p> : ''}
         {(this.state.submitted === true && !this.state.error) ? 
         
         <p className={styles.confirmationMessage}>Thank you for contacting me!<br/><br/>I'm reviewing your submission and should get back to you in the next 24 hours.</p> : 
@@ -94,7 +94,13 @@ class ContactForm extends React.Component {
               emailText += `<p><strong>${value}</strong>: ${values[value]} </p><br/>`
             })
 
-            axios.post(`https://api.mailgun.net/v3/${process.env.GATSBY_DOMAIN}/messages`, {
+            axios({
+              method: 'post',
+              url: `https://api.mailgun.net/v3/${process.env.GATSBY_DOMAIN}/messages`,
+              headers: {
+                'Access-Control-Allow-Headers': 'Authorization',
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+              },
               auth: {
                 username: 'api',
                 password: process.env.GATSBY_MAILGUN_API_KEY
