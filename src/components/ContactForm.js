@@ -41,7 +41,7 @@ class ContactForm extends React.Component {
 
     return (
       <div>
-        {this.state.error ? <p className={styles.error}>An error occurred while submitting the form. Please try again. If the problem persists, please email me at <a href="mailto:djsaun@gmail.com">djsaun@gmail.com</a></a></p> : ''}
+        {this.state.error ? <p className={styles.error}>An error occurred while submitting the form. Please try again. If the problem persists, please email me at <a href="mailto:djsaun@gmail.com">djsaun@gmail.com</a></p> : ''}
         {(this.state.submitted === true && !this.state.error) ? 
         
         <p className={styles.confirmationMessage}>Thank you for contacting me!<br/><br/>I'm reviewing your submission and should get back to you in the next 24 hours.</p> : 
