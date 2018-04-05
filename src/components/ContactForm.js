@@ -98,7 +98,6 @@ class ContactForm extends React.Component {
               method: 'post',
               url: `https://api.mailgun.net/v3/${process.env.GATSBY_DOMAIN}/messages`,
               headers: {
-                'Access-Control-Allow-Headers': 'Authorization',
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
               },
               auth: {
