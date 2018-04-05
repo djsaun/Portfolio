@@ -64,6 +64,19 @@ module.exports = {
         ],
         precision: 8
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          "/*": [
+            "Access-Control-Allow-Credentials:true",
+            "Access-Control-Allow-Headers: authorization, accept, content-type, x-auth-token",
+            "Access-Control-Allow-Methods:GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS",
+            "Access-Control-Allow-Origin:*"
+          ],
+        },
+      }
+    },
   ],
 }
