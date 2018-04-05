@@ -41,7 +41,7 @@ class ContactForm extends React.Component {
 
     return (
       <div>
-        {this.state.error ? <p>An error occurred while submitted the form. Please try again.</p> : ''}
+        {this.state.error ? <p className={styles.error}>An error occurred while submitted the form. Please try again.</p> : ''}
         {(this.state.submitted === true && !this.state.error) ? 
         
         <p className={styles.confirmationMessage}>Thank you for contacting me!<br/><br/>I'm reviewing your submission and should get back to you in the next 24 hours.</p> : 
@@ -99,6 +99,7 @@ class ContactForm extends React.Component {
               url: `https://api.mailgun.net/v3/${process.env.GATSBY_DOMAIN}/messages`,
               headers: {
                 'Access-Control-Allow-Headers': 'Authorization',
+                'Authorization': `Bearer ${process.env.GATSBY_MAILGUN_API_KEY}`,
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
               },
               auth: {
