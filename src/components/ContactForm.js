@@ -107,6 +107,7 @@ class ContactForm extends React.Component {
               }
             }).then((response) => {
                console.log(response);
+               
                this.setState({submitted: true})
              })
             .catch((error)=>{
