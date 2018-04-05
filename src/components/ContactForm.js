@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Formik } from 'formik';
 const Recaptcha = require('react-recaptcha');
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { faUserAlt, faPhone, faEnvelope, faMicrophone, faBrowser, } from '@fortawesome/fontawesome-pro-regular';
+import { faUser, faEnvelope } from '@fortawesome/fontawesome-free-regular';
+import { faMicrophone, faPhone, faDesktop } from '@fortawesome/fontawesome-free-solid';
 import Button from '../components/Button';
 import styles from '../styles/contactForm.module.css';
 
@@ -129,7 +130,7 @@ class ContactForm extends React.Component {
           }) => (
               <form onSubmit={handleSubmit} name="contact" data-netlify="true" data-netlify-honeypot="bot-field" className={styles.form}>
                 <div className={styles.field}>
-                  <label htmlFor="name"><FontAwesomeIcon className={styles.icon} icon={faUserAlt} /> Name<span>*</span></label>
+                  <label htmlFor="name"><FontAwesomeIcon className={styles.icon} icon={faUser} /> Name<span>*</span></label>
                   <input
                     type="text"
                     name="name"
@@ -168,7 +169,7 @@ class ContactForm extends React.Component {
                 </div>
 
                 <div className={styles.field}>
-                  <label htmlFor="website"><FontAwesomeIcon className={styles.icon} icon={faBrowser} /> Website</label>
+                  <label htmlFor="website"><FontAwesomeIcon className={styles.icon} icon={faDesktop} /> Website</label>
                   <input
                     type="text"
                     name="website"

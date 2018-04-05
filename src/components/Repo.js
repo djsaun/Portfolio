@@ -3,8 +3,8 @@ import moment from 'moment';
 import styles from '../styles/repo.module.css';
 import Button from './Button';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/fontawesome-free-regular';
-import { faEye, faExclamationTriangle } from '@fortawesome/fontawesome-pro-regular';
+import { faStar} from '@fortawesome/fontawesome-free-regular';
+import { faExclamationTriangle, faEye } from '@fortawesome/fontawesome-free-solid';
 
 const Repo = (props) => {
 
