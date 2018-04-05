@@ -71,10 +71,10 @@ module.exports = {
       options: {
         headers: {
           "/*": [
+            "Access-Control-Allow-Origin:*",
             "Access-Control-Allow-Credentials:true",
-            "Access-Control-Allow-Headers: authorization, accept, content-type, x-auth-token",
-            "Access-Control-Allow-Methods:GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS",
-            "Access-Control-Allow-Origin:*"
+            "Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization",
+            "Access-Control-Allow-Methods:GET,PUT,POST,DELETE,PATCH,OPTIONS"
           ],
         },
       }
