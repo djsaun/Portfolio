@@ -96,14 +96,14 @@ class ContactForm extends React.Component {
 
             axios({
               method: 'post',
-              url: `https://api.mailgun.net/v3/mg.davidjsaunders.com/messages`,
+              url: `https://api.mailgun.net/v3/${process.env.GATSBY_DOMAIN}/messages`,
               headers: {
                 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
               },
               auth: {
                 username: 'api',
-                password: 'key-4ed53c7e138fd96db3aaedeaf6737fa0'
+                password: process.env.GATSBY_MAILGUN_API_KEY
               },
               params: {
                 from: 'David Saunders <david@monkee-boy.com>',
