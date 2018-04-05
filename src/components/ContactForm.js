@@ -94,18 +94,12 @@ class ContactForm extends React.Component {
               emailText += `<p><strong>${value}</strong>: ${values[value]} </p><br/>`
             })
 
-            axios({
-              method: 'post',
-              url: `https://api.mailgun.net/v3/${process.env.GATSBY_DOMAIN}/messages`,
-              headers: {
-                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-              },
+            axios.post(`https://api.mailgun.net/v3/${process.env.GATSBY_DOMAIN}/messages`, {
               auth: {
                 username: 'api',
                 password: process.env.GATSBY_MAILGUN_API_KEY
               },
-              params: {
+              data: {
                 from: 'David Saunders <david@monkee-boy.com>',
                 to: 'djsaun@gmail.com',
                 subject: 'New Submission From Portfolio Contact Form',
