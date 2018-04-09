@@ -13,7 +13,7 @@ class Contact extends React.Component{
       <div>
         <h1>Get In Touch</h1>
         <h2>Let's start a conversation!</h2>
-        <p>I'm interested in learning more about your project. Please provide as much detail as you can in your email. You should expect to hear from me in a day or so.</p>
+        <p>I'm interested in learning more about your project! Please include your name, website (if applicable), telephone number, and as much detail as you can about the project in your email. You should expect to hear from me in a day or so.</p>
         {/* <ContactForm /> */}
         <Button link="mailto:djsaun@gmail.com?subject=Project Inquiry for David Saunders" text="Send Email" />
 
