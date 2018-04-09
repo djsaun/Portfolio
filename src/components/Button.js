@@ -7,7 +7,7 @@ const Button = (props) => {
     <div>
     {(props.type !== 'submit') ?
       <a href={props.link} target={(!props.target) ? '_self' : props.target } className={styles.button}>{props.text}</a> :
-      <button type={props.type} className={styles.button}>{props.text}</button>
+      <input type={props.type} className={styles.button} value={props.text} />
     }
     </div>
 

@@ -71,6 +71,27 @@ input, textarea {
 
 .formButton {
   margin-top: 20px;
+  display: inline-block;
+}
+
+.formButton input {
+  padding: 10px 20px;
+  display: inline-block;
+  background: none;
+  color: var(--green);
+  border: 2px solid var(--green);
+  border-radius: 4px;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.formButton input:hover, .formButton input:active, .formButton input:focus {
+  background: var(--green);
+  color: var(--white);
+}
+
+.formButton input:disabled {
+  pointer-events: none;
 }
 
 @media (max-width:600px) {
