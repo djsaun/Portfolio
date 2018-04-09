@@ -4,7 +4,6 @@ import styles from '../styles/repo.module.css';
 import Button from './Button';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/fontawesome-free-regular';
-import { faEye, faExclamationTriangle } from '@fortawesome/fontawesome-pro-regular';
 
 const Repo = (props) => {
 
@@ -28,15 +27,15 @@ const Repo = (props) => {
         </div> */}
         <div className={styles.metadata}>
           <div className="watchers">
-            <FontAwesomeIcon icon={faEye} /> 
+            <FontAwesomeIcon  /> 
             <span>{props.details.watchers.totalCount}</span>
           </div>
           <div className="stars">
-            <FontAwesomeIcon icon={faStar} /> 
+            <FontAwesomeIcon  /> 
             <span>{props.details.stargazers.totalCount}</span>
           </div>
           <div className="issues">
-            <FontAwesomeIcon icon={faExclamationTriangle} /> 
+            <FontAwesomeIcon/> 
             <span>{props.details.issues.totalCount}</span>
           </div>
         </div>
