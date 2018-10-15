@@ -1,0 +1,7 @@
+{
+  "main.css": "build-html-styles.css",
+  "main.css.map": "build-html-styles.css.map",
+  "main.js": "render-page.js",
+  "main.js.map": "render-page.js.map",
+  "static/david_saunders.jpeg": "static/david_saunders.13bd119b.jpeg"
+}

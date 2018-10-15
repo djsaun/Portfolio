@@ -1,0 +1,2 @@
+webpackJsonp([60335399758886],{163:function(t,a){t.exports={data:{site:{siteMetadata:{title:"David Saunders' Portfolio",author:"David Saunders"}}},layoutContext:{}}}});
+//# sourceMappingURL=path----a29302247c735f14d426.js.map
