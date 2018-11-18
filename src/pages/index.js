@@ -29,7 +29,7 @@ class Index extends React.Component {
   }
 
   fetchRepoData(name) {
-    const auth = { Authorization: `bearer ${process.env.GATSBY_GITHUB_API}`};
+    const auth = { Authorization: `bearer ${process.env.GATSBY_GITHUB_API_KEY}`};
     const githubURL = `https://api.github.com/graphql`;
 
     let CancelToken = axios.CancelToken;
