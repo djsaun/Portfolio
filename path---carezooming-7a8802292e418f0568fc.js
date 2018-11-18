@@ -1,0 +1,2 @@
+webpackJsonp([0x9194a66abe9b],{476:function(a,t){a.exports={data:{site:{siteMetadata:{title:"David Saunders' Portfolio",author:"David Saunders"}},markdownRemark:{id:"/Users/admin/Desktop/Training/portfolio/src/projects/carezooming/index.md absPath of file >>> MarkdownRemark",html:"",frontmatter:{title:"CareZooming",date:"October 20, 2018",link:"https://carezooming.com",repo:null}}},pathContext:{path:"/carezooming/"}}}});
+//# sourceMappingURL=path---carezooming-7a8802292e418f0568fc.js.map

@@ -40,6 +40,10 @@
       "component---src-templates-blog-post-js-347bfed501f8b266b024.js",
       "component---src-templates-blog-post-js-347bfed501f8b266b024.js.map"
     ],
+    "path---kfriese": [
+      "path---kfriese-eab1b59b867e35538e4f.js",
+      "path---kfriese-eab1b59b867e35538e4f.js.map"
+    ],
     "component---src-templates-project-js": [
       "component---src-templates-project-js-4ba8b5aaa883b2d24e38.js",
       "component---src-templates-project-js-4ba8b5aaa883b2d24e38.js.map"
@@ -59,6 +63,10 @@
     "path---caritas-of-austin": [
       "path---caritas-of-austin-c78e424a255acfc1fb0d.js",
       "path---caritas-of-austin-c78e424a255acfc1fb0d.js.map"
+    ],
+    "path---carezooming": [
+      "path---carezooming-7a8802292e418f0568fc.js",
+      "path---carezooming-7a8802292e418f0568fc.js.map"
     ],
     "component---src-pages-404-js": [
       "component---src-pages-404-js-ada92964546558b3e9b2.js",
@@ -87,8 +95,8 @@
       "path---contact-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---portfolio": [
-      "path---portfolio-a6393f13140f31c30eef.js",
-      "path---portfolio-a6393f13140f31c30eef.js.map"
+      "path---portfolio-fa7eb3cd18e3eaf42c7f.js",
+      "path---portfolio-fa7eb3cd18e3eaf42c7f.js.map"
     ],
     "path---offline-plugin-app-shell-fallback": [
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js",
@@ -99,9 +107,9 @@
       "component---src-pages-blog-js-64342dcd29fe7b3a53c8.js.map"
     ],
     "app": [
-      "app-8f2501e3f79eff7d3b9a.js",
+      "app-3f14e366d128ec45ea22.js",
       "build-js-styles.css",
-      "app-8f2501e3f79eff7d3b9a.js.map",
+      "app-3f14e366d128ec45ea22.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-pages-portfolio-js": [

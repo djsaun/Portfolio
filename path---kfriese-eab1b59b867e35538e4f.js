@@ -1,0 +1,2 @@
+webpackJsonp([0x62a4426191b9],{480:function(e,t){e.exports={data:{site:{siteMetadata:{title:"David Saunders' Portfolio",author:"David Saunders"}},markdownRemark:{id:"/Users/admin/Desktop/Training/portfolio/src/projects/kfriese/index.md absPath of file >>> MarkdownRemark",html:"",frontmatter:{title:"K Friese + Associates",date:"October 24, 2018",link:"https://kfriese.com",repo:null}}},pathContext:{path:"/kfriese/"}}}});
+//# sourceMappingURL=path---kfriese-eab1b59b867e35538e4f.js.map
