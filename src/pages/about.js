@@ -1,8 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
-const About = (props) => {
-  return(
+const About = props => (
     <div>
       <h1>About David</h1>
       <p>I've been developing professionally for five years, and am currently a Front End Web Developer at <a href="https://monkee-boy.com" target="_blank">Monkee-Boy Web Design</a> in Austin, TX.</p>
@@ -15,7 +14,6 @@ const About = (props) => {
 
       <p>Outside of coding, I really enjoy hiking/backpacking, biking, running, and reading, and hanging out with my cat, Abby.</p>
     </div>
-  )
-}
+  );
 
 export default About;

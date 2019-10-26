@@ -6,22 +6,23 @@ import styles from '../styles/portfolio.module.css';
 
 class Portfolio extends React.Component {
   render() {
-    const projects = get(this, 'props.data.projects.edges')
+    const projects = get(this, 'props.data.projects.edges');
 
     return (
       <div>
         <h1>Portfolio</h1>
         <div className={styles.portfolio}>
           {projects.map((project, i) => {
-            if (project.node.path !== '/404/') {
-              return (
-                <Project key={i} project={project.node} />
-              )
+            if (
+              project.node.path !== '/404/' &&
+              project.node.path !== '/welcome/'
+            ) {
+              return <Project key={i} project={project.node} />;
             }
           })}
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -53,4 +54,4 @@ export const projectQuery = graphql`
       }
     }
   }
-`
+`;

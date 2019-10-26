@@ -2,12 +2,11 @@
 title: Budget Tracker
 date: "2017-11-01"
 path: "/budget-tracker/"
-link: "https://budget-tracker.com"
 repo: "https://github.com/djsaun/Budget-Tracker"
 featured: true
-excerpt: "Budget Tracker is a full-fledged budgeting application designed to allow users to monitor their spending habits. Create an unlimited amount of spending categories to provide a granularized view of where your money is going. Interactive charts allow you to track your overall and categorial spending on a month-to-month basis." 
+excerpt: "Budget Tracker is a full-fledged budgeting application designed to allow users to monitor their spending habits. Create an unlimited amount of spending categories to provide a granularized view of where your money is going. Interactive charts allow you to track your overall and categorial spending on a month-to-month basis."
 technologies: [JS, Node.js, Express, Mongoose, MongoDB, Pug]
-type: 'Personal'
+type: "Personal"
 ---
 
 Budget Tracker is a personal project developed primarily in Node.js and makes use of Express, Mongoose, MongoDB, and the Pug templating language. The application allows users to track and monitor their spending habits. The site utilizes Passport.js to provide user authentication. All user credentials are sanitized and passwords are hashed upon creation in order to provide a more secure experience.
